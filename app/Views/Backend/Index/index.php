@@ -44,7 +44,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper">
         <!-- Sidebar -->
         <div class="sidebar" data-background-color="dark">
             <div class="sidebar-logo">
@@ -98,12 +98,12 @@
                             <span class="sidebar-mini-icon">
                                 <i class="fa fa-ellipsis-h"></i>
                             </span>
-                            <h4 class="text-section">Components</h4>
+                            <h4 class="text-section">MENU</h4>
                         </li>
                         <li class="nav-item">
                             <a data-bs-toggle="collapse" href="#base">
                                 <i class="fas fa-layer-group"></i>
-                                <p>Base</p>
+                                <p>Menu</p>
                                 <span class="caret"></span>
                             </a>
                             <div class="collapse" id="base">
@@ -324,7 +324,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- End Sidebar -->
 
         <div class="main-panel">
