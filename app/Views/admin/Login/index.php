@@ -74,10 +74,12 @@
     <div class="login-container">
         <h1>Selamat Datang</h1>
 
-        <!-- Menampilkan pesan kesalahan -->
+        <!-- Menampilkan pesan kesalahan khusus untuk username -->
         <?php if (session()->getFlashdata('errUsername')) : ?>
             <div class="message"><?= session()->getFlashdata('errUsername') ?></div>
         <?php endif; ?>
+
+        <!-- Menampilkan pesan kesalahan khusus untuk password -->
         <?php if (session()->getFlashdata('errPassword')) : ?>
             <div class="message"><?= session()->getFlashdata('errPassword') ?></div>
         <?php endif; ?>
@@ -96,7 +98,4 @@
             </div>
             <button type="submit" class="btn-login">Login</button>
         </form>
-    </div>
-</body>
-
-</html>
+    </div

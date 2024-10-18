@@ -9,13 +9,13 @@ class Loginctrl extends BaseController
 {
     public function index()
     {
-        // If user is already logged in, redirect to dashboard
+        // Jika user sudah login, arahkan ke dashboard
         if (session()->get('logged_in')) {
             return redirect()->to(base_url('admin/dashboard'));
         }
 
-        // Show login view
-        return view('admin/Login/index');  // Correct the path to your view
+        // Tampilkan view login
+        return view('admin/Login/index');  // Pastikan path ke view sudah benar
     }
 
     public function process()
@@ -26,25 +26,41 @@ class Loginctrl extends BaseController
         $dataUser = $users->where([
             'username' => $username,
         ])->first();
+
         if ($dataUser) {
-            if ($password === $dataUser->password) {
-                session()->set([
-                    'username' => $dataUser->username,
-                    'logged_in' => TRUE
-                ]);
-                return redirect()->to(base_url('admin/dashboard'));
+            // Periksa apakah status 'aktif' dari enum di database
+            if ($dataUser->status === 'Aktif') {
+                // Enkripsi password yang dimasukkan dengan MD5
+                $encryptedPassword = md5($password);
+
+                // Cek password yang dienkripsi
+                if ($encryptedPassword === $dataUser->password) {
+                    session()->set([
+                        'username' => $dataUser->username,
+                        'logged_in' => TRUE
+                    ]);
+
+                    return redirect()->to(base_url('admin/dashboard'));
+                } else {
+                    // Set flashdata khusus untuk kesalahan password
+                    session()->setFlashdata('errPassword', 'Password yang Anda masukkan salah.');
+                    return redirect()->back();
+                }
             } else {
-                session()->setFlashdata('error', 'Username & Password Salah');
+                session()->setFlashdata('error', 'Akun tidak aktif.');
                 return redirect()->back();
             }
         } else {
-            session()->setFlashdata('error', 'Username & Password Salah');
+            // Set flashdata khusus untuk kesalahan username
+            session()->setFlashdata('errUsername', 'Username tidak ditemukan.');
             return redirect()->back();
         }
     }
+
+
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(base_url('login'));  // Redirect back to login after logout
+        return redirect()->to(base_url('/login'));  // Redirect kembali ke login setelah logout
     }
 }

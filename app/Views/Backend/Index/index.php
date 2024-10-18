@@ -2,49 +2,59 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AdminKasRT16</title>
-    <meta
-        content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-        name="viewport" />
-    <link
-        rel="icon"
-        href="/Assets/assets/img/kaiadmin/favicon.ico"
-        type="image/x-icon" />
-
-    <!-- Fonts and icons -->
-    <script src="/Assets/assets/js/plugin/webfont/webfont.min.js"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ["Public Sans:300,400,500,600,700"]
-            },
-            custom: {
-                families: [
-                    "Font Awesome 5 Solid",
-                    "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands",
-                    "simple-line-icons",
-                ],
-                urls: ["assets/css/fonts.min.css"],
-            },
-            active: function() {
-                sessionStorage.fonts = true;
-            },
-        });
-    </script>
-
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="/Assets/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/Assets/assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="/Assets/assets/css/kaiadmin.min.css" />
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="/Assets/assets/css/demo.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Admin</title>
 </head>
 
 <body>
-    <!-- <div class="wrapper">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>AdminKasRT16</title>
+        <meta
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+            name="viewport" />
+        <link
+            rel="icon"
+            href="/Assets/assets/img/kaiadmin/favicon.ico"
+            type="image/x-icon" />
+
+        <!-- Fonts and icons -->
+        <script src="/Assets/assets/js/plugin/webfont/webfont.min.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: ["Public Sans:300,400,500,600,700"]
+                },
+                custom: {
+                    families: [
+                        "Font Awesome 5 Solid",
+                        "Font Awesome 5 Regular",
+                        "Font Awesome 5 Brands",
+                        "simple-line-icons",
+                    ],
+                    urls: ["assets/css/fonts.min.css"],
+                },
+                active: function() {
+                    sessionStorage.fonts = true;
+                },
+            });
+        </script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="/Assets/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/Assets/assets/css/plugins.min.css" />
+        <link rel="stylesheet" href="/Assets/assets/css/kaiadmin.min.css" />
+
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link rel="stylesheet" href="/Assets/assets/css/demo.css" />
+    </head>
+
+    <body>
+        <!-- <div class="wrapper">
         <!-- Sidebar -->
         <div class="sidebar" data-background-color="dark">
             <div class="sidebar-logo">
@@ -109,50 +119,26 @@
                             <div class="collapse" id="base">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                        <a href="components/avatars.html">
-                                            <span class="sub-item">Avatars</span>
+                                        <a href="<?= base_url('/kk'); ?>">
+                                            <span class="sub-item">KK</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="components/buttons.html">
-                                            <span class="sub-item">Buttons</span>
+                                            <span class="sub-item">Warga</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="components/gridsystem.html">
-                                            <span class="sub-item">Grid System</span>
+                                            <span class="sub-item">Kas</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="components/panels.html">
-                                            <span class="sub-item">Panels</span>
+                                            <span class="sub-item">Pengeluaran</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="components/notifications.html">
-                                            <span class="sub-item">Notifications</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/sweetalert.html">
-                                            <span class="sub-item">Sweet Alert</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/font-awesome-icons.html">
-                                            <span class="sub-item">Font Awesome Icons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/simple-line-icons.html">
-                                            <span class="sub-item">Simple Line Icons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/typography.html">
-                                            <span class="sub-item">Typography</span>
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </li>
@@ -670,7 +656,7 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Account Setting</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Logout</a>
+                                            <a href="<?= site_url('logout') ?>">Logout</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -690,7 +676,7 @@
                             <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
                         </div>
                         <div class="ms-md-auto py-2 py-md-0">
-                            <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
+                            <a href="#" class="btn btn-label-info btn-round me-2">Logout</a>
                             <a href="#" class="btn btn-primary btn-round">Add Customer</a>
                         </div>
                     </div>
@@ -1449,71 +1435,75 @@
             </div>
         </div>
         <!-- End Custom template -->
-    </div>
-    <!--   Core JS Files   -->
-    <script src="/Assets/assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="/Assets/assets/js/core/popper.min.js"></script>
-    <script src="/Assets/assets/js/core/bootstrap.min.js"></script>
+        </div>
+        <!--   Core JS Files   -->
+        <script src="/Assets/assets/js/core/jquery-3.7.1.min.js"></script>
+        <script src="/Assets/assets/js/core/popper.min.js"></script>
+        <script src="/Assets/assets/js/core/bootstrap.min.js"></script>
 
-    <!-- jQuery Scrollbar -->
-    <script src="/Assets/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+        <!-- jQuery Scrollbar -->
+        <script src="/Assets/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-    <!-- Chart JS -->
-    <script src="/Assets/assets/js/plugin/chart.js/chart.min.js"></script>
+        <!-- Chart JS -->
+        <script src="/Assets/assets/js/plugin/chart.js/chart.min.js"></script>
 
-    <!-- jQuery Sparkline -->
-    <script src="/Assets/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+        <!-- jQuery Sparkline -->
+        <script src="/Assets/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
-    <!-- Chart Circle -->
-    <script src="/Assets/assets/js/plugin/chart-circle/circles.min.js"></script>
+        <!-- Chart Circle -->
+        <script src="/Assets/assets/js/plugin/chart-circle/circles.min.js"></script>
 
-    <!-- Datatables -->
-    <script src="/Assets/assets/js/plugin/datatables/datatables.min.js"></script>
+        <!-- Datatables -->
+        <script src="/Assets/assets/js/plugin/datatables/datatables.min.js"></script>
 
-    <!-- Bootstrap Notify -->
-    <script src="/Assets/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+        <!-- Bootstrap Notify -->
+        <script src="/Assets/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
-    <!-- jQuery Vector Maps -->
-    <script src="/Assets/assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="/Assets/assets/js/plugin/jsvectormap/world.js"></script>
+        <!-- jQuery Vector Maps -->
+        <script src="/Assets/assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+        <script src="/Assets/assets/js/plugin/jsvectormap/world.js"></script>
 
-    <!-- Sweet Alert -->
-    <script src="/Assets/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+        <!-- Sweet Alert -->
+        <script src="/Assets/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
-    <!-- Kaiadmin JS -->
-    <script src="/Assets/assets/js/kaiadmin.min.js"></script>
+        <!-- Kaiadmin JS -->
+        <script src="/Assets/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="assets/js/setting-demo.js"></script>
-    <script src="assets/js/demo.js"></script>
-    <script>
-        $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-            type: "line",
-            height: "70",
-            width: "100%",
-            lineWidth: "2",
-            lineColor: "#177dff",
-            fillColor: "rgba(23, 125, 255, 0.14)",
-        });
+        <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+        <script src="assets/js/setting-demo.js"></script>
+        <script src="assets/js/demo.js"></script>
+        <script>
+            $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+                type: "line",
+                height: "70",
+                width: "100%",
+                lineWidth: "2",
+                lineColor: "#177dff",
+                fillColor: "rgba(23, 125, 255, 0.14)",
+            });
 
-        $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-            type: "line",
-            height: "70",
-            width: "100%",
-            lineWidth: "2",
-            lineColor: "#f3545d",
-            fillColor: "rgba(243, 84, 93, .14)",
-        });
+            $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+                type: "line",
+                height: "70",
+                width: "100%",
+                lineWidth: "2",
+                lineColor: "#f3545d",
+                fillColor: "rgba(243, 84, 93, .14)",
+            });
 
-        $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-            type: "line",
-            height: "70",
-            width: "100%",
-            lineWidth: "2",
-            lineColor: "#ffa534",
-            fillColor: "rgba(255, 165, 52, .14)",
-        });
-    </script>
+            $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+                type: "line",
+                height: "70",
+                width: "100%",
+                lineWidth: "2",
+                lineColor: "#ffa534",
+                fillColor: "rgba(255, 165, 52, .14)",
+            });
+        </script>
+    </body>
+
+    </html>
+
 </body>
 
 </html>
