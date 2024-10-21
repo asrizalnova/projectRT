@@ -34,4 +34,9 @@ class KkModel extends Model
             'in_list' => 'Status harus memilih antara "menetap" atau "pindah"',
         ],
     ];
+
+    public function countWarga()
+    {
+        return $this->countAll(); 
+    }
 }

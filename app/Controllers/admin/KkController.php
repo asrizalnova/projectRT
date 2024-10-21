@@ -21,47 +21,50 @@ class KkController extends Controller
     }
 
     public function store()
-    {
-        helper(['form', 'url']);
-        $validation = $this->validate([
-            'noKK' => [
-                'rules'  => 'required',
-                'errors' => [
-                    'required' => 'Masukkan nomor kartu keluarga.'
-                ]
-            ],
-            'namaKK'    => [
-                'rules'  => 'required',
-                'errors' => [
-                    'required' => 'Masukkan nama kepala keluarga.'
-                ]
-            ],
-            'status'    => [
-                'rules'  => 'required',
-                'errors' => [
-                    'required' => 'Isi status.'
-                ]
-            ],
-        ]);
+{
+    helper(['form', 'url']);
+    $validation = $this->validate([
+        'noKK' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Masukkan nomor kartu keluarga.'
+            ]
+        ],
+        'namaKK' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Masukkan nama kepala keluarga.'
+            ]
+        ],
+        'status' => [
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Isi status.'
+            ]
+        ],
+    ]);
 
-        if (!$validation) {
-            return view('admin/KK/createKK', [
-                'validation' => $this->validator
-            ]);
+    if (!$validation) {
+        // Jika validasi gagal, kembalikan ke view create dengan pesan error
+        return view('admin/KK/createKK', [
+            'validation' => $this->validator
+        ]);
+    } else {
+        $kkModel = new KkModel();
+        if ($kkModel->insert([
+            'noKK'   => $this->request->getPost('noKK'),
+            'namaKK' => $this->request->getPost('namaKK'),
+            'status' => $this->request->getPost('status'),
+        ])) {
+            // Simpan pesan sukses untuk ditampilkan di index
+            session()->setFlashdata('success', 'Data Berhasil Disimpan');
         } else {
-            $kkModel = new KkModel();
-            if ($kkModel->insert([
-                'noKK'   => $this->request->getPost('noKK'),
-                'namaKK' => $this->request->getPost('namaKK'),
-                'status' => $this->request->getPost('status'),
-            ])) {
-                session()->setFlashdata('message', 'Data Berhasil Disimpan');
-            } else {
-                session()->setFlashdata('message', 'Gagal Menyimpan Data');
-            }
-            return redirect()->to(base_url('/kk'));
+            // Simpan pesan error untuk ditampilkan di create
+            session()->setFlashdata('error', 'Gagal Menyimpan Data');
         }
+        return redirect()->to(base_url('/kk'));
     }
+}
 
     public function edit($noKK)
     {
