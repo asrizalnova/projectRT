@@ -32,11 +32,12 @@
                                         <th class="text-center">Jenis Kelamin</th>
                                         <th class="text-center">Tempat Lahir</th>
                                         <th class="text-center">Tanggal Lahir</th>
+                                        <th class="text-center">Umur</th> <!-- Tambahkan kolom Umur -->
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Pekerjaan</th>
                                         <th class="text-center">Keterangan</th>
                                         <th class="text-center">Status Aktif</th>
-                                        <th class="text-center" style="width: 150px;">Aksi</th> <!-- Lebarkan kolom Aksi -->
+                                        <th class="text-center" style="width: 150px;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,16 +49,17 @@
                                             <td><?= $tampilWarga->jenisKelamin ?></td>
                                             <td><?= $tampilWarga->tempatLahir ?></td>
                                             <td><?= $tampilWarga->tanggalLahir ?></td>
+                                            <td><?= $tampilWarga->umur ?></td> <!-- Tampilkan umur yang sudah dihitung -->
                                             <td><?= $tampilWarga->status ?></td>
                                             <td><?= $tampilWarga->pekerjaan ?></td>
                                             <td><?= $tampilWarga->keterangan ?></td>
                                             <td><?= $tampilWarga->statusAktif ?></td>
                                             <td valign="middle">
-                                            <div class="d-grid gap-2 d-md-grid" style="grid-template-columns: 1fr 1fr;">
-                                                <a href="<?= base_url('warga/edit/' . $tampilWarga->nik) ?>" class="btn btn-warning mb-2">Edit</a>
-                                                <a href="<?= base_url('warga/delete') . '/' . $tampilWarga->nik ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $tampilWarga->nik ?>">Hapus</a>
-                                            </div>
-                                        </td>
+                                                <div class="d-grid gap-2 d-md-grid" style="grid-template-columns: 1fr 1fr;">
+                                                    <a href="<?= base_url('warga/edit/' . $tampilWarga->nik) ?>" class="btn btn-warning mb-2">Edit</a>
+                                                    <a href="<?= base_url('warga/delete') . '/' . $tampilWarga->nik ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $tampilWarga->nik ?>">Hapus</a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -71,23 +73,23 @@
 </div>
 
 <?php foreach ($all_data_warga as $tampilWarga) : ?>
-  <div class="modal fade" id="deleteModal<?= $tampilWarga->nik ?>" tabindex="-1" aria-labelledby="deleteModalLabel<?= $tampilWarga->nik ?>" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel<?= $tampilWarga->nik ?>">Konfirmasi Hapus</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="deleteModal<?= $tampilWarga->nik ?>" tabindex="-1" aria-labelledby="deleteModalLabel<?= $tampilWarga->nik ?>" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel<?= $tampilWarga->nik ?>">Konfirmasi Hapus</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus data ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <a href="<?= base_url('/warga/delete/' . $tampilWarga->nik) ?>" class="btn btn-danger">Hapus</a>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          Apakah Anda yakin ingin menghapus data ini?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <a href="<?= base_url('/warga/delete/' . $tampilWarga->nik) ?>" class="btn btn-danger">Hapus</a>
-        </div>
-      </div>
     </div>
-  </div>
 <?php endforeach; ?>
 
 

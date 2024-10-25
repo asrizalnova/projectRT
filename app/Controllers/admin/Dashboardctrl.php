@@ -9,6 +9,7 @@ use App\Models\KkModel;
 class Dashboardctrl extends BaseController
 {
     protected $wargaModel;
+    protected $kkModel;
 
     public function __construct()
     {

@@ -9,8 +9,16 @@
                 <div class="app-card app-card-orders-table shadow-sm mb-5 bg-white rounded p-4">
                     <h2 class="text-center mb-4 text-primary">Tambah Data Warga</h2>
 
-                    <form action="<?= base_url('warga/proses_tambah') ?>" method="post">
-                        <?= csrf_field() ?>
+                    <?php if (session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+                    <?php endif; ?>
+
+                    <form action="<?= site_url('warga/proses_tambah') ?>" method="post">
+                        <!-- <?= csrf_field() ?> -->
 
                         <div class="mb-3">
                             <label for="nik" class="form-label">NIK</label>
