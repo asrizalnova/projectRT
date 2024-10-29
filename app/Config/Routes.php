@@ -30,3 +30,12 @@ $routes->post('/warga/proses_tambah', 'admin\Wargactrl::proses_tambah');
 $routes->get('/warga/edit/(:num)', 'admin\Wargactrl::edit/$1');
 $routes->post('/warga/proses_edit/(:num)', 'admin\Wargactrl::proses_edit/$1');
 $routes->get('/warga/delete/(:num)', 'admin\Wargactrl::delete/$1');
+
+//Routes kas
+$routes->get('/kas', 'admin\kasController::index');
+$routes->get('/kas/tambah', 'admin\kasController::tambah');
+$routes->post('/kas/store', 'admin\kasController::store');
+$routes->get('/kas/edit/(:num)', 'admin\kasController::edit/$1');
+$routes->post('/kas/update/(:num)', 'admin\kasController::update/$1');
+$routes->get('/kas/delete/(:num)', 'admin\kasController::delete/$1');
+

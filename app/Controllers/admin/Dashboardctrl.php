@@ -5,16 +5,19 @@ namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 use App\Models\WargaModel; 
 use App\Models\KkModel;
+use App\Models\KasModel;
 
 class Dashboardctrl extends BaseController
 {
     protected $wargaModel;
     protected $kkModel;
+    protected $kasModel;
 
     public function __construct()
     {
         $this->wargaModel = new WargaModel(); 
         $this->KkModel = new KkModel(); 
+        $this->kasModel = new kasModel();
         
     }
 
@@ -30,7 +33,7 @@ class Dashboardctrl extends BaseController
         $data = [
             'total_kk' => $this->KkModel->countAll(),
             'total_warga' => $this->wargaModel->countAll(), 
-            
+            'total_kas' => $this->kasModel->getTotalSaldo(),
         ];
 
         // Tampilkan view DashboardAdmin.php dengan data

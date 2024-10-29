@@ -58,6 +58,13 @@ $currentPath = uri_string();
                         <span>Warga</span>
                     </a>
                 </li>
+                <!-- Tes -->
+                <li class="nav-item <?= ($currentPath == 'kas') ? 'active' : '' ?>">
+                    <a href="<?= base_url('/kas'); ?>" class="nav-link">
+                        <i class="fas fa-file"></i>
+                        <span>Kas</span>
+                    </a>
+                </li>
 
             </ul>
         </div>

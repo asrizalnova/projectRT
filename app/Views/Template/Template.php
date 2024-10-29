@@ -3,6 +3,8 @@
     <title>AdminKasRT16</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="<?= base_url('Assets/assets/img/kaiadmin/favicon.ico') ?>" type="image/x-icon" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Fonts and icons -->
     <script src="<?= base_url('Assets/assets/js/plugin/webfont/webfont.min.js') ?>"></script>
@@ -31,6 +33,8 @@
     <link rel="stylesheet" href="<?= base_url('Assets/assets/css/plugins.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('Assets/assets/css/kaiadmin.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('Assets/assets/css/demo.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('Assets/assets/css/style.css') ?>" />
+
 </head>
 
 <body class="app">
@@ -56,6 +60,9 @@
     <script src="<?= base_url('Assets/assets/js/kaiadmin.min.js') ?>"></script>
     <script src="<?= base_url('Assets/assets/js/setting-demo.js') ?>"></script>
     <script src="<?= base_url('Assets/assets/js/demo.js') ?>"></script>
+    <script src="<?= base_url('Assets/js/script.js'); ?>"></script>
+
+
 
     <script>
         $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
