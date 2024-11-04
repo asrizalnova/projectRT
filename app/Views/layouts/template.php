@@ -84,7 +84,7 @@
                 responsive: true,
                 autoWidth: false,
                 lengthChange: false,
-                paging: true,
+                paging: false,
                 searching: true
             });
 
