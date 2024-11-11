@@ -441,6 +441,207 @@
             });
         });
 
+        // CRUD Iuran
+
+
+        $(document).ready(function() {
+            $('#createIuran').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "<?= site_url('iuran/store'); ?>",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Iuran berhasil ditambahkan!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal menambahkan data Iuran.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+            // Event listener untuk tombol edit iuran
+            $('.btnEditIuran').on('click', function() {
+                const idIuran = $(this).data('id');
+
+                // Ambil data dari server menggunakan AJAX untuk Iuran
+                $.ajax({
+                    url: "<?= site_url('iuran/edit'); ?>/" + idIuran,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        // Mengisi dropdown dengan data
+                        $('#editIdUser').empty();
+                        $.each(data.users, function(index, user) {
+                            $('#editIdUser').append(new Option(user.nama, user.idUser, user.idUser == data.iuran.idUser, user.idUser == data.iuran.idUser)); // Set nilai default
+                        });
+
+                        $('#editIdKas').empty();
+                        $.each(data.kas, function(index, kas) {
+                            $('#editIdKas').append(new Option(kas.namaKas, kas.idKas, kas.idKas == data.iuran.idKas, kas.idKas == data.iuran.idKas)); // Set nilai default
+                        });
+
+                        $('#editNoKK').empty();
+                        $.each(data.kk, function(index, kk) {
+                            $('#editNoKK').append(new Option(kk.noKK, kk.noKK, kk.noKK == data.iuran.noKK, kk.noKK == data.iuran.noKK)); // Set nilai default
+                        });
+
+                        // Mengisi data yang akan diedit
+                        $('#editBulan').val(data.iuran.bulan);
+                        $('#editTahun').val(data.iuran.tahun);
+                        $('#editJumlah').val(data.iuran.jumlah);
+                        $('#editTanggal').val(data.iuran.tanggal);
+
+                        // Set action form untuk mengarah ke metode update
+                        $('#editIuranForm').attr('action', "<?= site_url('iuran/update'); ?>/" + idIuran);
+
+                        // Tampilkan modal edit
+                        $('#editModalIuran').modal('show');
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal mengambil data Iuran.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
+
+            // Kirim form edit untuk Iuran
+            $('#editIuranForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formAction = $(this).attr('action');
+
+                $.ajax({
+                    url: formAction,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#editModalIuran').modal('hide');
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Iuran berhasil diedit!',
+                            icon: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal memperbarui data Iuran.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                });
+            });
+
+            $('.btnDeleteIuran').on('click', function() {
+                const idIuran = $(this).data('id');
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim permintaan penghapusan dengan AJAX
+                        $.ajax({
+                            url: "<?= site_url('iuran/delete'); ?>/" + idIuran,
+                            type: "DELETE",
+                            dataType: "json",
+                            success: function(response) {
+                                if (response.status) {
+                                    // Hapus baris tabel setelah berhasil dihapus
+                                    $('#row-' + idIuran).remove();
+
+                                    // Tampilkan notifikasi sukses
+                                    Swal.fire({
+                                        title: 'Terhapus!',
+                                        text: 'Data iuran berhasil dihapus.',
+                                        icon: 'success',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    Swal.fire({
+                                        title: 'gagal',
+                                        text: 'Gagal menghapus data iuran.',
+                                        icon: 'error',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {}, 2000);
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: 'error!',
+                                    text: 'Terjadi kesalahan saat mengapus data iuran.',
+                                    icon: 'error',
+                                    timer: 2000, // Tampilkan selama 3 detik
+                                    showConfirmButton: false // Popup otomatis menutup
+                                });
+
+                                // Tunda reload hingga popup selesai
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+
         function confirmAndNotify(link, noKK) {
             if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
                 // Jika pengguna mengonfirmasi, alihkan ke link yang diberikan

@@ -35,6 +35,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Id</th>
                                         <th>Nama Kas</th>
                                         <th>Jenis</th>
                                         <th>Saldo</th>
@@ -46,6 +47,7 @@
                                     <?php foreach ($kas_detail as $row): ?>
                                         <tr id="<?php echo $row['idKas']; ?>">
                                             <td><?= $no++; ?></td>
+                                            <td><?= $row['idKas']; ?></td>
                                             <td><?= $row['namaKas']; ?></td>
                                             <td><?= $row['jenis']; ?></td>
                                             <td><?= $row['saldo']; ?></td>
@@ -61,6 +63,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
+                                        <th>Id</th>
                                         <th>Nama Kas</th>
                                         <th>Jenis</th>
                                         <th>Saldo</th>
@@ -103,8 +106,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </form>
             </div>
@@ -140,8 +143,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                 </div>
             </form>
         </div>

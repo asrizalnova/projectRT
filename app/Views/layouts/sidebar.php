@@ -42,7 +42,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item menu-open">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-database"></i>
                         <p>
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/validation.html" class="nav-link">
+                            <a href="<?= base_url('iuran'); ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Iuran</p>
                             </a>
