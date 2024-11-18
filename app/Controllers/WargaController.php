@@ -27,8 +27,23 @@ class WargaController extends Controller
 
         $data['kk'] = $this->kkModel->findAll(); // Fetch all kartu keluarga
 
+        // Menghitung umur berdasarkan tanggal lahir
+        foreach ($data['warga_detail'] as &$warga) {
+            $warga['umur'] = $this->hitungUmur($warga['tanggalLahir']);
+        }
+
         // Return the view with $data
         return view('admin/warga', $data);
+    }
+
+    // Fungsi untuk menghitung umur
+    private function hitungUmur($tanggalLahir)
+    {
+        $tanggalLahir = new \DateTime($tanggalLahir); // Membuat objek DateTime dari tanggal lahir
+        $sekarang = new \DateTime(); // Mendapatkan waktu saat ini
+        $interval = $tanggalLahir->diff($sekarang); // Menghitung selisih antara tanggal lahir dan waktu saat ini
+
+        return $interval->y; // Mengembalikan umur dalam tahun
     }
 
     public function store()
@@ -157,30 +172,11 @@ class WargaController extends Controller
     {
         $model = $this->wargaModel;
 
-        // Cek apakah data warga dengan ID tersebut ada
         if ($model->find($id)) {
-            // Jika ada, hapus data warga
             $model->delete($id);
-
-            // Kembalikan response JSON dengan status sukses dan redirect URL
-            return $this->response->setJSON([
-                'status' => true,
-                'message' => 'Data warga berhasil dihapus.',
-                'redirect' => site_url('warga') // URL untuk mengarahkan setelah sukses
-            ]);
+            return $this->response->setJSON(['status' => true, 'redirect' => site_url('warga')]);
         } else {
-            // Jika data tidak ditemukan, kembalikan response JSON dengan status gagal
-            return $this->response->setJSON([
-                'status' => false,
-                'message' => 'Data warga tidak ditemukan.',
-                'redirect' => site_url('warga') // Tetap arahkan ke halaman warga meski gagal
-            ]);
+            return $this->response->setJSON(['status' => false, 'redirect' => site_url('warga')]);
         }
     }
-
-
-
-
-
-    // Tambahkan metode edit, update, dan delete di sini jika diperlukan
 }

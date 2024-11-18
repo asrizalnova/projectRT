@@ -38,6 +38,7 @@
                                         <th>NIK</th>
                                         <th>Kepala Keluarga</th>
                                         <th>Nama Warga</th>
+                                        <th>Umur</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
@@ -56,6 +57,7 @@
                                             <td><?= $row['nik']; ?></td>
                                             <td><?= $row['namaKK']; ?></td>
                                             <td><?= $row['nama']; ?></td>
+                                            <td><?= isset($row['umur']) ? $row['umur'] : '-'; ?></td> <!-- Menampilkan umur -->
                                             <td><?= $row['jenisKelamin']; ?></td>
                                             <td><?= $row['tempatLahir']; ?></td>
                                             <td><?= $row['tanggalLahir']; ?></td>
@@ -65,7 +67,7 @@
                                             <td><?= $row['statusAktif']; ?></td>
                                             <td class="text-left">
                                                 <a data-id="<?= $row['nik']; ?>" class="btn btn-primary btnEditWarga btn-sm">Edit</a>
-                                                <a href="<?= base_url('warga/delete') . '/' . $row['nik'] ?>" class="btn btn-danger btnDeleteWarga btn-sm">Delete</a>
+                                                <a data-id="<?= $row['nik']; ?>" class="btn btn-danger btnDeleteWarga btn-sm">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -76,6 +78,7 @@
                                         <th>NIK</th>
                                         <th>Kepala Keluarga</th>
                                         <th>Nama Warga</th>
+                                        <th>Umur</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>

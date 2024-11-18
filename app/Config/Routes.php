@@ -11,17 +11,24 @@ $routes->get('login', 'Login::index');
 $routes->post('login/process', 'Login::process');
 $routes->get('logout', 'Login::logout');
 
+$routes->get('user', 'UserController::index');
+$routes->post('user/store', 'UserController::store');
+$routes->get('user/edit/(:num)', 'UserController::edit/$1');
+$routes->post('user/update/(:num)', 'UserController::update/$1');
+$routes->delete('user/delete/(:num)', 'UserController::delete/$1');
+$routes->post('user/changePassword/(:num)', 'UserController::changePassword/$1');
+
 $routes->get('kk', 'KkController::View');
 $routes->post('kk/store', 'KkController::store');
 $routes->get('kk/edit/(:num)', 'KkController::edit/$1');
 $routes->post('kk/update/(:num)', 'KkController::update/$1');
-$routes->get('kk/delete/(:num)', 'KkController::delete/$1');
+$routes->delete('kk/delete/(:num)', 'KkController::delete/$1');
 
 $routes->get('warga', 'WargaController::index');
 $routes->post('warga/store', 'WargaController::store');
 $routes->get('warga/edit/(:num)', 'WargaController::edit/$1');
 $routes->post('warga/update/(:num)', 'WargaController::update/$1');
-$routes->get('warga/delete/(:num)', 'WargaController::delete/$1');
+$routes->delete('warga/delete/(:num)', 'WargaController::delete/$1');
 
 $routes->get('kas', 'KasController::index');
 $routes->post('kas/store', 'KasController::store');

@@ -39,6 +39,7 @@ class Login extends BaseController
                         'idUser'    => $dataUser->idUser,
                         'nama'      => $dataUser->nama,      // Sesuaikan dengan kolom nama di database
                         'username'  => $dataUser->username,
+                        'level'  => $dataUser->level,
                         'logged_in' => TRUE
                     ]);
 

@@ -51,12 +51,14 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>User</p>
-                            </a>
-                        </li>
+                        <?php if (session()->get('level') == 'Super Admin'): ?> <!-- Menampilkan menu hanya untuk superadmin -->
+                            <li class="nav-item">
+                                <a href="<?= base_url('user'); ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a href="<?= base_url('kk'); ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

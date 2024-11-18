@@ -95,25 +95,15 @@ class KkController extends Controller
         }
     }
 
-    // public function delete($id)
-    // {
-    //     $model = new KkModel();
-
-    //     if ($model->find($id)) {
-    //         $model->delete($id);
-    //         return $this->response->setJSON(['status' => true, 'redirect' => site_url('kk')]);
-    //     } else {
-    //         return $this->response->setJSON(['status' => false, 'redirect' => site_url('kk')]);
-    //     }
-    // }
-
-    public function delete($noKK = null)
+    public function delete($id)
     {
-
         $model = new KkModel();
 
-        $data['kk'] = $model->where('noKK', $noKK)->delete();
-
-        return redirect()->to(base_url('kk'));
+        if ($model->find($id)) {
+            $model->delete($id);
+            return $this->response->setJSON(['status' => true, 'redirect' => site_url('kk')]);
+        } else {
+            return $this->response->setJSON(['status' => false, 'redirect' => site_url('kk')]);
+        }
     }
 }

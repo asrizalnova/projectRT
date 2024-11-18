@@ -863,6 +863,264 @@
         });
 
         $(document).ready(function() {
+            $('#createUser').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "<?= site_url('user/store'); ?>",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data User berhasil ditambahkan!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal menambahkan data User.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            $('.btnEditUser').on('click', function() {
+                const idUser = $(this).data('id');
+
+                // Ambil data dari server menggunakan AJAX
+                $.ajax({
+                    url: "<?= site_url('user/edit'); ?>/" + idUser,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        if (data) {
+                            // Mengisi data warga
+                            $('#editNama').val(data.user.nama);
+                            $('#editUsername').val(data.user.username);
+                            $('#editLevel').val(data.user.level);
+                            $('#editStatus').val(data.user.status);
+
+                            // Set action form untuk update
+                            $('#editUserForm').attr('action', "<?= site_url('user/update'); ?>/" + idUser);
+
+                            // Tampilkan modal edit
+                            $('#editModalUser').modal('show');
+                        } else {
+                            Swal.fire({
+                                title: 'Gagal!',
+                                text: 'Data User tidak ditemukan.',
+                                icon: 'error',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengambil data User.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
+
+            $('#editUserForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formAction = $(this).attr('action');
+
+                $.ajax({
+                    url: formAction,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#editModalUser').modal('hide');
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data User berhasil diedit!',
+                            icon: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal memperbarui data User.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                });
+            });
+
+            $('.btnDeleteUser').on('click', function() {
+                const idUser = $(this).data('id');
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim permintaan penghapusan dengan AJAX
+                        $.ajax({
+                            url: "<?= site_url('user/delete'); ?>/" + idUser,
+                            type: "DELETE",
+                            dataType: "json",
+                            success: function(response) {
+                                if (response.status) {
+                                    // Hapus baris tabel setelah berhasil dihapus
+                                    $('#row-' + idUser).remove();
+
+                                    // Tampilkan notifikasi sukses
+                                    Swal.fire({
+                                        title: 'Terhapus!',
+                                        text: 'Data User berhasil dihapus.',
+                                        icon: 'success',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    Swal.fire({
+                                        title: 'gagal',
+                                        text: 'Gagal menghapus data User.',
+                                        icon: 'error',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {}, 2000);
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: 'error!',
+                                    text: 'Terjadi kesalahan saat mengapus data User.',
+                                    icon: 'error',
+                                    timer: 2000, // Tampilkan selama 3 detik
+                                    showConfirmButton: false // Popup otomatis menutup
+                                });
+
+                                // Tunda reload hingga popup selesai
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        });
+                    }
+                });
+            });
+
+            $('.btnChangePassword').on('click', function() {
+                const userId = $(this).data('id'); // Mengambil ID pengguna
+                const url = "<?= site_url('user/changePassword/'); ?>" + userId; // Menyusun URL untuk mengarah ke controller dengan ID
+
+                // Tampilkan modal untuk ganti password
+                $('#changePasswordModal').modal('show');
+
+                // Set URL pada form action
+                $('#changePasswordForm').attr('action', url);
+            });
+
+            $('#changePasswordForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const newPassword = $('#newPassword').val();
+                const confirmPassword = $('#confirmPassword').val();
+
+                // Validasi konfirmasi password
+                if (newPassword !== confirmPassword) {
+                    Swal.fire({
+                        title: 'Password Tidak Cocok',
+                        text: 'Password baru dan konfirmasi password tidak cocok.',
+                        icon: 'error',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                    return;
+                }
+
+                // Kirim form menggunakan AJAX
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: $(this).serialize(), // Mengirim data form, termasuk password
+                    success: function(response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: 'Berhasil',
+                                text: 'Password berhasil diganti!',
+                                icon: 'success',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            Swal.fire({
+                                title: 'Gagal',
+                                text: 'Gagal mengganti password.',
+                                icon: 'error',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Terjadi kesalahan saat mengganti password.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
             $('#createWarga').on('submit', function(e) {
                 e.preventDefault();
 
@@ -966,7 +1224,7 @@
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
-                        $('#editWargaPengeluaran').modal('hide');
+                        $('#editModalWarga').modal('hide');
                         Swal.fire({
                             title: 'Berhasil!',
                             text: 'Data Warga berhasil diedit!',
@@ -997,64 +1255,70 @@
                 });
             });
 
-            // $('.btnDeleteWarga').on('click', function() {
-            //     const nik = $(this).data('id');
+            $('.btnDeleteWarga').on('click', function() {
+                const nik = $(this).data('id');
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim permintaan penghapusan dengan AJAX
+                        $.ajax({
+                            url: "<?= site_url('warga/delete'); ?>/" + nik,
+                            type: "DELETE",
+                            dataType: "json",
+                            success: function(response) {
+                                if (response.status) {
+                                    // Hapus baris tabel setelah berhasil dihapus
+                                    $('#row-' + nik).remove();
 
-            //     Swal.fire({
-            //         title: 'Apakah Anda yakin?',
-            //         text: "Data ini akan dihapus secara permanen!",
-            //         icon: 'warning',
-            //         showCancelButton: true,
-            //         confirmButtonColor: '#3085d6',
-            //         cancelButtonColor: '#d33',
-            //         confirmButtonText: 'Ya, hapus!',
-            //         cancelButtonText: 'Batal'
-            //     }).then((result) => {
-            //         if (result.isConfirmed) {
-            //             // Kirim permintaan penghapusan dengan AJAX
-            //             $.ajax({
-            //                 url: "<?= site_url('warga/delete'); ?>",
-            //                 type: "POST", // Ganti menjadi POST untuk keamanan
-            //                 data: {
-            //                     nik: nik
-            //                 }, // Kirim NIK sebagai data POST
-            //                 dataType: "json",
-            //                 success: function(response) {
-            //                     if (response.status) {
-            //                         // Hapus baris tabel setelah berhasil dihapus
-            //                         $('#row-' + nik).remove();
+                                    // Tampilkan notifikasi sukses
+                                    Swal.fire({
+                                        title: 'Terhapus!',
+                                        text: 'Data Warga berhasil dihapus.',
+                                        icon: 'success',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
 
-            //                         // Tampilkan notifikasi sukses
-            //                         Swal.fire({
-            //                             title: 'Terhapus!',
-            //                             text: 'Data Warga berhasil dihapus.',
-            //                             icon: 'success',
-            //                             timer: 2000,
-            //                             showConfirmButton: false
-            //                         });
-            //                     } else {
-            //                         Swal.fire({
-            //                             title: 'Gagal!',
-            //                             text: response.message || 'Gagal menghapus data Warga.',
-            //                             icon: 'error',
-            //                             timer: 2000,
-            //                             showConfirmButton: false
-            //                         });
-            //                     }
-            //                 },
-            //                 error: function() {
-            //                     Swal.fire({
-            //                         title: 'Error!',
-            //                         text: 'Terjadi kesalahan saat menghapus data Warga.',
-            //                         icon: 'error',
-            //                         timer: 2000,
-            //                         showConfirmButton: false
-            //                     });
-            //                 }
-            //             });
-            //         }
-            //     });
-            // });
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    Swal.fire({
+                                        title: 'gagal',
+                                        text: 'Gagal menghapus data Warga.',
+                                        icon: 'error',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {}, 2000);
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: 'error!',
+                                    text: 'Terjadi kesalahan saat mengapus data Warga.',
+                                    icon: 'error',
+                                    timer: 2000, // Tampilkan selama 3 detik
+                                    showConfirmButton: false // Popup otomatis menutup
+                                });
+
+                                // Tunda reload hingga popup selesai
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        });
+                    }
+                });
+            });
 
         });
 
