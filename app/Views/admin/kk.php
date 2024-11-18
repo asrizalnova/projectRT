@@ -44,18 +44,14 @@
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach ($kk_detail as $row): ?>
-                                        <tr id="row-<?php echo $row['noKK']; ?>"> <!-- Tambahkan ID untuk baris tabel -->
+                                        <tr id="<?php echo $row['noKK']; ?>"> <!-- Tambahkan ID untuk baris tabel -->
                                             <td><?= $no++; ?></td>
                                             <td><?= $row['noKK']; ?></td>
                                             <td><?= $row['namaKK']; ?></td>
                                             <td><?= $row['status']; ?></td>
                                             <td class="text-left">
                                                 <a data-id="<?= $row['noKK']; ?>" class="btn btn-primary btnEditKK btn-sm">Edit</a>
-                                                <!-- Ubah tombol Hapus menjadi tombol AJAX dengan kelas btnDeleteKK -->
-                                                <a href="<?= base_url('kk/delete/' . $row['noKK']); ?>" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
-                                                    Hapus
-                                                </a>
+                                                <a data-id="<?= $row['noKK']; ?>" class="btn btn-danger btnDeleteKK btn-sm">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

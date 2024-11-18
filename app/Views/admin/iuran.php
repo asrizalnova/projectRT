@@ -37,11 +37,11 @@
                                         <th>No</th>
                                         <th>Nama Kas</th>
                                         <th>Kepala Keluarga</th>
-                                        <th>Nama User</th>
                                         <th>Bulan</th>
                                         <th>Tahun</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal</th>
+                                        <th>Admin</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -52,11 +52,11 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $row['namaKas']; ?></td>
                                             <td><?= $row['namaKK']; ?></td>
-                                            <td><?= $row['nama']; ?></td>
                                             <td><?= $row['bulan']; ?></td>
                                             <td><?= $row['tahun']; ?></td>
                                             <td><?= $row['jumlah']; ?></td>
                                             <td><?= $row['tanggal']; ?></td>
+                                            <td><?= $row['nama']; ?></td>
                                             <td class="text-left">
                                                 <a data-id="<?= $row['idIuran']; ?>" class="btn btn-primary btnEditIuran btn-sm">Edit</a>
                                                 <a data-id="<?= $row['idIuran']; ?>" class="btn btn-danger btnDeleteIuran btn-sm">Delete</a>
@@ -71,11 +71,11 @@
                                         <th>No</th>
                                         <th>Nama Kas</th>
                                         <th>Kepala Keluarga</th>
-                                        <th>Nama User</th>
                                         <th>Bulan</th>
                                         <th>Tahun</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal</th>
+                                        <th>Admin</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
@@ -171,12 +171,6 @@
             </div>
             <form id="editIuranForm" action="" method="post">
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="editIdUser" class="form-label">User</label>
-                        <select name="idUser" id="editIdUser" class="form-select" required>
-                            <!-- Dropdown options for users will be populated here -->
-                        </select>
-                    </div>
                     <div class="mb-3">
                         <label for="editIdKas" class="form-label">Kas</label>
                         <select name="idKas" id="editIdKas" class="form-select" required>

@@ -70,77 +70,55 @@
     <script src="<?= base_url() ?>//dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
-        // $(function() {
-        //     $("#example1").DataTable({
-        //         "responsive": true,
-        //         "lengthChange": false,
-        //         "autoWidth": false,
-        //     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        // });
-
         // Fungsi untuk menangani pengeditan data KK
         $(document).ready(function() {
-            $('#example1').DataTable({
-                responsive: true,
-                autoWidth: false,
-                lengthChange: false,
-                paging: false,
-                searching: true
-            });
-
-            // Klik tombol Edit untuk KK
-            $('.btnEditKK').on('click', function() {
-                const noKK = $(this).data('id');
-
-                // Ambil data dari server menggunakan AJAX untuk KK
-                $.ajax({
-                    url: "<?= site_url('kk/edit'); ?>/" + noKK,
-                    type: "GET",
-                    dataType: "JSON",
-                    success: function(data) {
-                        $('#editNoKK').val(data.noKK);
-                        $('#editNamaKK').val(data.namaKK);
-                        $('#editStatus').val(data.status);
-
-                        // Set action form untuk mengarah ke metode update
-                        $('#editKKForm').attr('action', "<?= site_url('kk/update'); ?>/" + noKK);
-
-                        // Tampilkan modal edit
-                        $('#editModal').modal('show');
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "searching": true,
+                "paging": false,
+                "buttons": [{
+                        extend: 'excel',
+                        text: 'Export to Excel',
+                        exportOptions: {
+                            columns: ':not(:last-child)' // Menyertakan semua kolom kecuali kolom terakhir
+                        }
                     },
-                    error: function() {
-                        Swal.fire({
-                            title: 'Gagal!',
-                            text: 'Gagal mengambil data untuk KK.',
-                            icon: 'error',
-                            timer: 2000, // Tampilkan selama 3 detik
-                            showConfirmButton: false // Popup otomatis menutup
-                        });
-
-                        // Tunda reload hingga popup selesai
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000); // Sesuaikan dengan timer di atas
+                    {
+                        extend: 'print',
+                        text: 'Print',
+                        exportOptions: {
+                            columns: ':not(:last-child)' // Menyertakan semua kolom kecuali kolom terakhir
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        text: 'Column Visibility'
                     }
-                });
-            });
+                ]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-            // Kirim form edit untuk KK
-            $('#editKKForm').on('submit', function(e) {
+
+
+
+
+        });
+
+        //CRUD Kas
+        $(document).ready(function() {
+            // Fungsi untuk menambahkan data Kas
+            $('#createKas').on('submit', function(e) {
                 e.preventDefault();
 
-                const formAction = $(this).attr('action');
-
                 $.ajax({
-                    url: formAction,
+                    url: "<?= site_url('kas/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
-                        $('#editModal').modal('hide');
-
                         Swal.fire({
                             title: 'Berhasil!',
-                            text: 'Data KK berhasil diedit!',
+                            text: 'Data Kas berhasil ditambahkan!',
                             icon: 'success',
                             timer: 2000, // Tampilkan selama 3 detik
                             showConfirmButton: false // Popup otomatis menutup
@@ -154,7 +132,7 @@
                     error: function() {
                         Swal.fire({
                             title: 'Gagal!',
-                            text: 'Gagal memperbarui data KK.',
+                            text: 'Gagal menambahkan data Kas.',
                             icon: 'error',
                             timer: 2000, // Tampilkan selama 3 detik
                             showConfirmButton: false // Popup otomatis menutup
@@ -167,93 +145,6 @@
                     }
                 });
             });
-
-
-            // Fungsi untuk menambahkan data KK
-            $('#createKK').on('submit', function(e) {
-                e.preventDefault();
-
-                $.ajax({
-                    url: "<?= site_url('kk/store'); ?>",
-                    type: "POST",
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Data KK berhasil ditambahkan!',
-                            icon: 'success',
-                            timer: 2000, // Tampilkan selama 3 detik
-                            showConfirmButton: false // Popup otomatis menutup
-                        });
-
-                        // Tunda reload hingga popup selesai
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000); // Sesuaikan dengan timer di atas
-                    },
-                    error: function() {
-                        Swal.fire({
-                            title: 'Gagal!',
-                            text: 'Gagal menambahkan data KK.',
-                            icon: 'error',
-                            timer: 2000, // Tampilkan selama 3 detik
-                            showConfirmButton: false // Popup otomatis menutup
-                        });
-
-                        // Tunda reload hingga popup selesai
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000); // Sesuaikan dengan timer di atas
-                    }
-                });
-            });
-
-            // Fungsi untuk menghapus data KK
-            // $('.btnDeleteKK').on('click', function(e) {
-            //     e.preventDefault();
-
-            //     const noKK = $(this).data('id'); // Ambil noKK dari tombol
-
-            //     // Konfirmasi penghapusan dengan Swal
-            //     Swal.fire({
-            //         title: 'Apakah Anda yakin?',
-            //         text: "Data ini akan dihapus secara permanen!",
-            //         icon: 'warning',
-            //         showCancelButton: true,
-            //         confirmButtonColor: '#3085d6',
-            //         cancelButtonColor: '#d33',
-            //         confirmButtonText: 'Ya, hapus!'
-            //     }).then((result) => {
-            //         if (result.isConfirmed) {
-            //             // Kirim permintaan penghapusan dengan AJAX
-            //             $.ajax({
-            //                 url: "<?= base_url('kk/delete/'); ?>" + noKK,
-            //                 type: "DELETE",
-            //                 dataType: "json",
-            //                 success: function(response) {
-            //                     if (response.status) {
-            //                         // Hapus baris tabel setelah berhasil dihapus
-            //                         $('#row-' + noKK).remove();
-
-            //                         // Tampilkan notifikasi sukses
-            //                         Swal.fire({
-            //                             title: 'Terhapus!',
-            //                             text: 'Data KK berhasil dihapus.',
-            //                             icon: 'success',
-            //                             timer: 3000,
-            //                             showConfirmButton: false
-            //                         });
-            //                     } else {
-            //                         Swal.fire('Gagal', 'Gagal menghapus data KK.', 'error');
-            //                     }
-            //                 },
-            //                 error: function() {
-            //                     Swal.fire('Gagal', 'Terjadi kesalahan saat menghapus data KK.', 'error');
-            //                 }
-            //             });
-            //         }
-            //     });
-            // });
 
             // Fungsi untuk menangani pengeditan data Kas
             $('.btnEditKas').on('click', function() {
@@ -334,44 +225,6 @@
                 });
             });
 
-            // Fungsi untuk menambahkan data Kas
-            $('#createKas').on('submit', function(e) {
-                e.preventDefault();
-
-                $.ajax({
-                    url: "<?= site_url('kas/store'); ?>",
-                    type: "POST",
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Data Kas berhasil ditambahkan!',
-                            icon: 'success',
-                            timer: 2000, // Tampilkan selama 3 detik
-                            showConfirmButton: false // Popup otomatis menutup
-                        });
-
-                        // Tunda reload hingga popup selesai
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000); // Sesuaikan dengan timer di atas
-                    },
-                    error: function() {
-                        Swal.fire({
-                            title: 'Gagal!',
-                            text: 'Gagal menambahkan data Kas.',
-                            icon: 'error',
-                            timer: 2000, // Tampilkan selama 3 detik
-                            showConfirmButton: false // Popup otomatis menutup
-                        });
-
-                        // Tunda reload hingga popup selesai
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000); // Sesuaikan dengan timer di atas
-                    }
-                });
-            });
 
             // Fungsi untuk menghapus data Kas
             $('.btnDeleteKas').on('click', function() {
@@ -441,9 +294,194 @@
             });
         });
 
+        //CRUD KK
+        $(document).ready(function() {
+            // Fungsi untuk menambahkan data KK
+            $('#createKK').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "<?= site_url('kk/store'); ?>",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data KK berhasil ditambahkan!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal menambahkan data KK.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            $('.btnEditKK').on('click', function() {
+                const noKK = $(this).data('id');
+
+                // Ambil data dari server menggunakan AJAX untuk KK
+                $.ajax({
+                    url: "<?= site_url('kk/edit'); ?>/" + noKK,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        $('#editNoKK').val(data.noKK);
+                        $('#editNamaKK').val(data.namaKK);
+                        $('#editStatus').val(data.status);
+
+                        // Set action form untuk mengarah ke metode update
+                        $('#editKKForm').attr('action', "<?= site_url('kk/update'); ?>/" + noKK);
+
+                        // Tampilkan modal edit
+                        $('#editModal').modal('show');
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal mengambil data untuk KK.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            // Kirim form edit untuk KK
+            $('#editKKForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formAction = $(this).attr('action');
+
+                $.ajax({
+                    url: formAction,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#editModal').modal('hide');
+
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data KK berhasil diedit!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal memperbarui data KK.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            $('.btnDeleteKK').on('click', function() {
+                const noKK = $(this).data('id');
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim permintaan penghapusan dengan AJAX
+                        $.ajax({
+                            url: "<?= site_url('kk/delete'); ?>/" + noKK,
+                            type: "DELETE",
+                            dataType: "json",
+                            success: function(response) {
+                                if (response.status) {
+                                    // Hapus baris tabel setelah berhasil dihapus
+                                    $('#row-' + noKK).remove();
+
+                                    // Tampilkan notifikasi sukses
+                                    Swal.fire({
+                                        title: 'Terhapus!',
+                                        text: 'Data KK berhasil dihapus.',
+                                        icon: 'success',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    Swal.fire({
+                                        title: 'gagal',
+                                        text: 'Gagal menghapus data KK.',
+                                        icon: 'error',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {}, 2000);
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: 'error!',
+                                    text: 'Terjadi kesalahan saat mengapus data KK.',
+                                    icon: 'error',
+                                    timer: 2000, // Tampilkan selama 3 detik
+                                    showConfirmButton: false // Popup otomatis menutup
+                                });
+
+                                // Tunda reload hingga popup selesai
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        });
+                    }
+                });
+            });
+        })
+
         // CRUD Iuran
-
-
         $(document).ready(function() {
             $('#createIuran').on('submit', function(e) {
                 e.preventDefault();
@@ -493,11 +531,6 @@
                     dataType: "JSON",
                     success: function(data) {
                         // Mengisi dropdown dengan data
-                        $('#editIdUser').empty();
-                        $.each(data.users, function(index, user) {
-                            $('#editIdUser').append(new Option(user.nama, user.idUser, user.idUser == data.iuran.idUser, user.idUser == data.iuran.idUser)); // Set nilai default
-                        });
-
                         $('#editIdKas').empty();
                         $.each(data.kas, function(index, kas) {
                             $('#editIdKas').append(new Option(kas.namaKas, kas.idKas, kas.idKas == data.iuran.idKas, kas.idKas == data.iuran.idKas)); // Set nilai default
@@ -639,6 +672,390 @@
                     }
                 });
             });
+        });
+
+        $(document).ready(function() {
+            $('#createPengeluaran').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "<?= site_url('pengeluaran/store'); ?>",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Pengeluaran berhasil ditambahkan!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal menambahkan data Pengeluaran.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            // Event listener untuk tombol edit iuran
+            $('.btnEditPengeluaran').on('click', function() {
+                const idPengeluaran = $(this).data('id');
+
+                // Ambil data dari server menggunakan AJAX untuk Iuran
+                $.ajax({
+                    url: "<?= site_url('pengeluaran/edit'); ?>/" + idPengeluaran,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        // Mengisi dropdown dengan data
+                        $('#editIdKas').empty();
+                        $.each(data.kas, function(index, kas) {
+                            $('#editIdKas').append(new Option(kas.namaKas, kas.idKas, kas.idKas == data.pengeluaran.idKas, kas.idKas == data.pengeluaran.idKas)); // Set nilai default
+                        });
+
+                        // Mengisi data yang akan diedit
+                        // $('#editIdPengeluaran').val(data.pengeluaran.idPengeluaran);
+                        $('#editNamaPengeluaran').val(data.pengeluaran.namaPengeluaran);
+                        $('#editInt').val(data.pengeluaran.int);
+                        $('#editTanggal').val(data.pengeluaran.tanggal);
+
+                        // Set action form untuk mengarah ke metode update
+                        $('#editPengeluaranForm').attr('action', "<?= site_url('pengeluaran/update'); ?>/" + idPengeluaran);
+
+                        // Tampilkan modal edit
+                        $('#editModalPengeluaran').modal('show');
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal mengambil data Pengeluaran.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
+
+            // Kirim form edit untuk Pengeluaran
+            $('#editPengeluaranForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formAction = $(this).attr('action');
+
+                $.ajax({
+                    url: formAction,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#editModalPengeluaran').modal('hide');
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Pengeluaran berhasil diedit!',
+                            icon: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal memperbarui data Pengeluaran.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                });
+            });
+
+            $('.btnDeletePengeluaran').on('click', function() {
+                const idPengeluaran = $(this).data('id');
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data ini akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim permintaan penghapusan dengan AJAX
+                        $.ajax({
+                            url: "<?= site_url('pengeluaran/delete'); ?>/" + idPengeluaran,
+                            type: "DELETE",
+                            dataType: "json",
+                            success: function(response) {
+                                if (response.status) {
+                                    // Hapus baris tabel setelah berhasil dihapus
+                                    $('#row-' + idPengeluaran).remove();
+
+                                    // Tampilkan notifikasi sukses
+                                    Swal.fire({
+                                        title: 'Terhapus!',
+                                        text: 'Data Pengeluaran berhasil dihapus.',
+                                        icon: 'success',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    Swal.fire({
+                                        title: 'gagal',
+                                        text: 'Gagal menghapus data Pengeluaran.',
+                                        icon: 'error',
+                                        timer: 2000,
+                                        showConfirmButton: false
+                                    });
+
+                                    setTimeout(function() {}, 2000);
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: 'error!',
+                                    text: 'Terjadi kesalahan saat mengapus data Pengeluaran.',
+                                    icon: 'error',
+                                    timer: 2000, // Tampilkan selama 3 detik
+                                    showConfirmButton: false // Popup otomatis menutup
+                                });
+
+                                // Tunda reload hingga popup selesai
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            $('#createWarga').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "<?= site_url('warga/store'); ?>",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Warga berhasil ditambahkan!',
+                            icon: 'success',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal menambahkan data Warga.',
+                            icon: 'error',
+                            timer: 2000, // Tampilkan selama 3 detik
+                            showConfirmButton: false // Popup otomatis menutup
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000); // Sesuaikan dengan timer di atas
+                    }
+                });
+            });
+
+            $('.btnEditWarga').on('click', function() {
+                const nik = $(this).data('id');
+
+                // Ambil data dari server menggunakan AJAX
+                $.ajax({
+                    url: "<?= site_url('warga/edit'); ?>/" + nik,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        if (data) {
+                            // Mengisi data warga
+                            $('#editNik').val(data.warga.nik);
+                            $('#editNama').val(data.warga.nama);
+                            $('#editJenisKelamin').val(data.warga.jenisKelamin);
+                            $('#editTempatLahir').val(data.warga.tempatLahir);
+                            $('#editTanggalLahir').val(data.warga.tanggalLahir);
+                            $('#editStatus').val(data.warga.status);
+                            $('#editPekerjaan').val(data.warga.pekerjaan);
+                            $('#editKeterangan').val(data.warga.keterangan);
+                            $('#editStatusAktif').val(data.warga.statusAktif);
+
+                            // Mengisi dropdown KK
+                            $('#editNoKK').empty(); // Hapus opsi sebelumnya
+                            $.each(data.kk, function(index, kk) {
+                                const isSelected = kk.noKK === data.warga.noKK;
+                                $('#editNoKK').append(new Option(`${kk.noKK} - ${kk.namaKK}`, kk.noKK, isSelected, isSelected));
+                            });
+
+                            // Set action form untuk update
+                            $('#editWargaForm').attr('action', "<?= site_url('warga/update'); ?>/" + nik);
+
+                            // Tampilkan modal edit
+                            $('#editModalWarga').modal('show');
+                        } else {
+                            Swal.fire({
+                                title: 'Gagal!',
+                                text: 'Data warga tidak ditemukan.',
+                                icon: 'error',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat mengambil data warga.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
+
+            $('#editWargaForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formAction = $(this).attr('action');
+
+                $.ajax({
+                    url: formAction,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#editWargaPengeluaran').modal('hide');
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data Warga berhasil diedit!',
+                            icon: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Gagal memperbarui data Warga.',
+                            icon: 'error',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        // Tunda reload hingga popup selesai
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                });
+            });
+
+            // $('.btnDeleteWarga').on('click', function() {
+            //     const nik = $(this).data('id');
+
+            //     Swal.fire({
+            //         title: 'Apakah Anda yakin?',
+            //         text: "Data ini akan dihapus secara permanen!",
+            //         icon: 'warning',
+            //         showCancelButton: true,
+            //         confirmButtonColor: '#3085d6',
+            //         cancelButtonColor: '#d33',
+            //         confirmButtonText: 'Ya, hapus!',
+            //         cancelButtonText: 'Batal'
+            //     }).then((result) => {
+            //         if (result.isConfirmed) {
+            //             // Kirim permintaan penghapusan dengan AJAX
+            //             $.ajax({
+            //                 url: "<?= site_url('warga/delete'); ?>",
+            //                 type: "POST", // Ganti menjadi POST untuk keamanan
+            //                 data: {
+            //                     nik: nik
+            //                 }, // Kirim NIK sebagai data POST
+            //                 dataType: "json",
+            //                 success: function(response) {
+            //                     if (response.status) {
+            //                         // Hapus baris tabel setelah berhasil dihapus
+            //                         $('#row-' + nik).remove();
+
+            //                         // Tampilkan notifikasi sukses
+            //                         Swal.fire({
+            //                             title: 'Terhapus!',
+            //                             text: 'Data Warga berhasil dihapus.',
+            //                             icon: 'success',
+            //                             timer: 2000,
+            //                             showConfirmButton: false
+            //                         });
+            //                     } else {
+            //                         Swal.fire({
+            //                             title: 'Gagal!',
+            //                             text: response.message || 'Gagal menghapus data Warga.',
+            //                             icon: 'error',
+            //                             timer: 2000,
+            //                             showConfirmButton: false
+            //                         });
+            //                     }
+            //                 },
+            //                 error: function() {
+            //                     Swal.fire({
+            //                         title: 'Error!',
+            //                         text: 'Terjadi kesalahan saat menghapus data Warga.',
+            //                         icon: 'error',
+            //                         timer: 2000,
+            //                         showConfirmButton: false
+            //                     });
+            //                 }
+            //             });
+            //         }
+            //     });
+            // });
+
         });
 
 

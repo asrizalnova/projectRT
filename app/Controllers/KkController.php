@@ -107,20 +107,13 @@ class KkController extends Controller
     //     }
     // }
 
-    public function delete($noKK)
+    public function delete($noKK = null)
     {
-        $kkModel = new KkModel();
 
-        if (!$kkModel->find($noKK)) {
-            return redirect()->to('/kk')->with('message', 'Data tidak ditemukan');
-        }
+        $model = new KkModel();
 
-        if ($kkModel->delete($noKK) === false) {
-            session()->setFlashdata('error', 'Data Berhasil Dihapus');
-            return redirect()->back()->withInput();
-        } else {
-            session()->setFlashdata('success', 'Data Berhasil Dihapus');
-            return redirect()->to(base_url('/kk'));
-        }
+        $data['kk'] = $model->where('noKK', $noKK)->delete();
+
+        return redirect()->to(base_url('kk'));
     }
 }
