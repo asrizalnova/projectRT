@@ -536,10 +536,16 @@
                             $('#editIdKas').append(new Option(kas.namaKas, kas.idKas, kas.idKas == data.iuran.idKas, kas.idKas == data.iuran.idKas)); // Set nilai default
                         });
 
-                        $('#editNoKK').empty();
-                        $.each(data.kk, function(index, kk) {
-                            $('#editNoKK').append(new Option(kk.noKK, kk.noKK, kk.noKK == data.iuran.noKK, kk.noKK == data.iuran.noKK)); // Set nilai default
-                        });
+                        $('#editNoKK').empty(); // Hapus opsi sebelumnya
+                            $.each(data.kk, function(index, kk) {
+                                // Format teks yang ditampilkan di dropdown: "noKK - namaKK"
+                                const displayText = `${kk.noKK} - ${kk.namaKK}`;
+                                // Periksa apakah ini adalah opsi yang sesuai dengan data iuran
+                                const isSelected = kk.noKK === data.iuran.noKK;
+                                // Tambahkan opsi ke dropdown
+                                $('#editNoKK').append(new Option(displayText, kk.noKK, isSelected, isSelected));
+                            });
+
 
                         // Mengisi data yang akan diedit
                         $('#editBulan').val(data.iuran.bulan);
@@ -1321,6 +1327,26 @@
             });
 
         });
+
+        $('.btnLogout').on('click', function() {
+    // Menggunakan SweetAlert2 untuk konfirmasi logout
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Anda akan keluar dari aplikasi!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, logout!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika user mengkonfirmasi logout, arahkan ke halaman logout
+            window.location.href = "<?= base_url('logout'); ?>";
+        }
+    });
+});
+
 
 
         function confirmAndNotify(link, noKK) {

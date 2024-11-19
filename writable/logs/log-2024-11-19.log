@@ -1,0 +1,2070 @@
+INFO - 2024-11-19 01:38:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:38:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:39:08 --> mysqli_sql_exception: Unknown column 'tbl_iuran.idKas' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:39:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idKas' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:39:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:39:08 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 01:41:11 --> mysqli_sql_exception: Unknown column 'tbl_iuran.tbl_kas._idKas' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:41:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.tbl_kas._idKas' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:41:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.tbl_kas._idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:41:11 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.tbl_kas._idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas`.`_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:41:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:42:05 --> mysqli_sql_exception: Unknown column 'tbl_iuran.idKas' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:42:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idKas' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:42:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:42:05 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.idKas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 01:45:45 --> mysqli_sql_exception: Unknown column 'tbl_iuran.noKK' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:45:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.noKK' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:45:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:45:45 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:46:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:46:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:46:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:47:12 --> mysqli_sql_exception: Unknown column 'idUser' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\projectRT\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(96): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->store()
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#10 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-19 01:47:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+[Method: POST, Route: iuran/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:47:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072764\', \'1\', \'2014\', \'40.000\', \'2024-11-19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072764\', \'1\', \'2014\', \'40.000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:47:12 --> [Caused by] mysqli_sql_exception: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072764\', \'1\', \'2014\', \'40.000\', \'2024-11-19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072764\', \'1\', \'2014\', \'40.000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072764\', \'1\', \'2014\', \'40.000\', \'2024-11-19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:47:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:47:31 --> mysqli_sql_exception: Unknown column 'idUser' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\projectRT\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(96): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->store()
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#10 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-19 01:47:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+[Method: POST, Route: iuran/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:47:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'40000\', \'2024-11-19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'40000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:47:31 --> [Caused by] mysqli_sql_exception: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'40000\', \'2024-11-19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'40000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'40000\', \'2024-11-19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:48:09 --> mysqli_sql_exception: Unknown column 'idUser' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\projectRT\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(96): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->store()
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#10 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-19 01:48:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+[Method: POST, Route: iuran/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:48:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:48:09 --> [Caused by] mysqli_sql_exception: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'30000\', \'2024-11-19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072762\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\IuranController.php(96): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:55:58 --> mysqli_sql_exception: Unknown column 'tbl_iuran.noKK' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:55:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.noKK' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:55:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:55:58 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 01:56:32 --> mysqli_sql_exception: Unknown column 'tbl_iuran.idUser' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 01:56:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idUser' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:56:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.idUser' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:56:32 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.idUser' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:56:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 01:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 01:57:11 --> mysqli_sql_exception: Unknown column 'idUser' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\projectRT\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(95): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->store()
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#10 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-19 01:57:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+[Method: POST, Route: iuran/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:57:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072763\', \'1\', \'2014\', \'20000\', \'2024-11-19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072763\', \'1\', \'2014\', \'20000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 01:57:11 --> [Caused by] mysqli_sql_exception: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072763\', \'1\', \'2014\', \'20000\', \'2024-11-19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072763\', \'1\', \'2014\', \'20000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072763\', \'1\', \'2014\', \'20000\', \'2024-11-19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 01:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 02:01:19 --> mysqli_sql_exception: Unknown column 'idUser' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\projectRT\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(95): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->store()
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#10 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-11-19 02:01:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+[Method: POST, Route: iuran/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 02:01:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072761\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072761\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 02:01:19 --> [Caused by] mysqli_sql_exception: Unknown column 'idUser' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072761\', \'1\', \'2014\', \'30000\', \'2024-11-19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072761\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (\'1\', \'3\', \'3604341102072761\', \'1\', \'2014\', \'30000\', \'2024-11-19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_iuran` (`idUser`, `idKas`, `noKK`, `bulan`, `tahun`, `jumlah`, `tanggal`) VALUES (:idUser:, :idKas:, :noKK:, :bulan:, :tahun:, :jumlah:, :tanggal:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\IuranController.php(95): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 02:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 02:03:23 --> mysqli_sql_exception: Unknown column 'tbl_iuran.tbl_kk_noKK' in 'on clause' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 02:03:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.tbl_kk_noKK' in 'on clause'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 02:03:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_iuran.tbl_kk_noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 02:03:23 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_iuran.tbl_kk_noKK' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKK`, `user`.`nama`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`tbl_kas_idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`tbl_kk_noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`tbl_user_idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 02:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:05:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:08:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 02:12:34 --> ErrorException: Undefined variable $namabulan
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 71.
+ 1 APPPATH\Views\admin\iuran.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $namabulan', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 71)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 02:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 02:13:03 --> ErrorException: Undefined variable $namabulan
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 71.
+ 1 APPPATH\Views\admin\iuran.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $namabulan', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 71)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 02:13:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:17:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:19:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:21:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:21:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:25:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 02:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 02:26:03 --> ErrorException: Undefined property: App\Controllers\IuranController::$IuranModel
+[Method: GET, Route: iuran/edit/1]
+in APPPATH\Controllers\IuranController.php on line 123.
+ 1 APPPATH\Controllers\IuranController.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\IuranController::$IuranModel', 'C:\\xampp\\htdocs\\projectRT\\app\\Controllers\\IuranController.php', 123)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 02:26:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 03:06:06 --> mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 03:06:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:06 --> [Caused by] mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 03:06:20 --> mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 03:06:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:20 --> [Caused by] mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 03:06:34 --> mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 03:06:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:06:34 --> [Caused by] mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 03:07:15 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 75.
+ 1 APPPATH\Views\admin\iuran.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 75)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:07:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:08:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 03:08:27 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 75.
+ 1 APPPATH\Views\admin\iuran.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 75)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 03:10:40 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 75.
+ 1 APPPATH\Views\admin\iuran.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 75)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 03:11:09 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: iuran]
+in APPPATH\Views\admin\iuran.php on line 75.
+ 1 APPPATH\Views\admin\iuran.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php', 75)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\iuran.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/iuran', [], true)
+ 5 APPPATH\Controllers\IuranController.php(41): view('admin/iuran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+ERROR - 2024-11-19 03:12:06 --> mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 03:12:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:12:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:12:06 --> [Caused by] mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:12:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-19 03:12:54 --> mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list' in C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\projectRT\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iur...', 0)
+#1 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iur...')
+#2 C:\xampp\htdocs\projectRT\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iur...')
+#3 C:\xampp\htdocs\projectRT\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iur...', Array, false)
+#4 C:\xampp\htdocs\projectRT\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\projectRT\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\projectRT\app\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(933): App\Controllers\IuranController->index()
+#8 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+#9 C:\xampp\htdocs\projectRT\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\projectRT\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\projectRT\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\projectRT\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\projectRT\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-19 03:12:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+[Method: GET, Route: iuran]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:12:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 03:12:54 --> [Caused by] mysqli_sql_exception: Unknown column 'kk.namaKepalaKeluarga' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_iuran`.*, `kas`.`namaKas`, `kk`.`namaKepalaKeluarga` as `namaKK`, `user`.`nama` as `namaUser`
+FROM `tbl_iuran`
+LEFT JOIN `tbl_kas` as `kas` ON `tbl_iuran`.`idKas` = `kas`.`idKas`
+LEFT JOIN `tbl_kk` as `kk` ON `tbl_iuran`.`noKK` = `kk`.`noKK`
+LEFT JOIN `tbl_user` as `user` ON `tbl_iuran`.`idUser` = `user`.`idUser`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\IuranController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\IuranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\IuranController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 03:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:13:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:14:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:20:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:20:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:20:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 03:27:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:15:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:16:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:16:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:22:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:33:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:53:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 04:54:49 --> ErrorException: Undefined variable $productCount
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashboard.php on line 24.
+ 1 APPPATH\Views\admin\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productCount', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 5 APPPATH\Controllers\DashboardController.php(34): view('admin/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 04:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 04:55:06 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/template/template.php"
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/template/template.php')
+ 2 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('admin/template/template', [], true)
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 4 APPPATH\Controllers\DashboardController.php(34): view('admin/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 04:55:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 04:55:44 --> ErrorException: Undefined variable $productCount
+[Method: GET, Route: dashboard]
+in APPPATH\Views\admin\dashboard.php on line 24.
+ 1 APPPATH\Views\admin\dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productCount', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php', 24)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 5 APPPATH\Controllers\DashboardController.php(34): view('admin/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 04:55:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 04:55:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/template/template.php"
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/template/template.php')
+ 2 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('admin/template/template', [], true)
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 4 APPPATH\Controllers\DashboardController.php(34): view('admin/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 04:55:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:57:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:57:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 04:58:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:06:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:06:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:06:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:07:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:07:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:09:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:09:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:14:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:14:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:14:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:17:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:17:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:17:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:18:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:19:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:20:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:21:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:23:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:23:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:28:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:29:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:30:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:31:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:31:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:35:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:35:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:38:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:40:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 05:42:10 --> TypeError: Cannot decrement App\Models\KasModel
+[Method: GET, Route: kas]
+in APPPATH\Controllers\KasController.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\KasController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KasController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 05:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:47:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:48:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:48:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:49:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 05:54:26 --> ErrorException: Undefined variable $kkCount
+[Method: GET, Route: pengeluaran]
+in APPPATH\Views\admin\dashboard.php on line 13.
+ 1 APPPATH\Views\admin\dashboard.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kkCount', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 5 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 05:54:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 05:55:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 05:55:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 05:56:08 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 05:56:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 05:56:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:56:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:56:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 05:56:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 05:57:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 05:57:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 05:58:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('admin/dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 05:58:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "beranda.php"
+[Method: GET, Route: pengeluaran]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('beranda.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('beranda', [], true)
+ 3 APPPATH\Controllers\PengeluaranController.php(36): view('beranda', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 05:58:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:58:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 05:59:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 06:01:22 --> ErrorException: Cannot redeclare App\Controllers\PengeluaranController::getRecentPengeluaran()
+[Method: GET, Route: pengeluaran]
+in APPPATH\Controllers\PengeluaranController.php on line 173.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-11-19 06:01:45 --> ErrorException: Undefined variable $kkCount
+[Method: GET, Route: pengeluaran]
+in APPPATH\Views\admin\beranda.php on line 47.
+ 1 APPPATH\Views\admin\beranda.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kkCount', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/beranda', [], true)
+ 5 APPPATH\Controllers\PengeluaranController.php(39): view('admin/beranda', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+CRITICAL - 2024-11-19 06:01:48 --> ErrorException: Undefined variable $kkCount
+[Method: GET, Route: pengeluaran]
+in APPPATH\Views\admin\beranda.php on line 47.
+ 1 APPPATH\Views\admin\beranda.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kkCount', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php', 47)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/beranda', [], true)
+ 5 APPPATH\Controllers\PengeluaranController.php(39): view('admin/beranda', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\PengeluaranController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 06:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:03:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-19 06:07:31 --> ErrorException: Undefined array key "pengeluaran"
+[Method: GET, Route: beranda]
+in APPPATH\Views\admin\beranda.php on line 130.
+ 1 APPPATH\Views\admin\beranda.php(130): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pengeluaran"', 'C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php', 130)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projectRT\\app\\Views\\admin\\beranda.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/beranda', [], true)
+ 5 APPPATH\Controllers\Beranda.php(37): view('admin/beranda', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Beranda->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Beranda))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projectRT\\public\\index.php')
+INFO - 2024-11-19 06:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:07:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:09:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:13:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:13:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:13:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:14:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:14:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 06:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

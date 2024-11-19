@@ -23,6 +23,22 @@
             </div>
         </div>
     </section>
+    <?php
+$namaBulan = [
+    1 => 'Januari',
+    2 => 'Februari',
+    3 => 'Maret',
+    4 => 'April',
+    5 => 'Mei',
+    6 => 'Juni',
+    7 => 'Juli',
+    8 => 'Agustus',
+    9 => 'September',
+    10 => 'Oktober',
+    11 => 'November',
+    12 => 'Desember'
+];
+?>
 
     <!-- Main content -->
     <section class="content">
@@ -52,7 +68,7 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $row['namaKas']; ?></td>
                                             <td><?= $row['namaKK']; ?></td>
-                                            <td><?= $row['bulan']; ?></td>
+                                            <td><?= $namaBulan[$row['bulan']]; ?></td>
                                             <td><?= $row['tahun']; ?></td>
                                             <td><?= $row['jumlah']; ?></td>
                                             <td><?= $row['tanggal']; ?></td>
@@ -178,15 +194,28 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="editNoKK" class="form-label">No KK</label>
-                        <select name="noKK" id="editNoKK" class="form-select" required>
-                            <!-- Dropdown options for no KK will be populated here -->
+                        <label for="editNoKK" class="form-label">Nomor KK</label>
+                        <select class="form-select" id="editNoKK" name="noKK" required>
+                            <option value="">Pilih Nomor KK</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="editBulan" class="form-label">Bulan</label>
-                        <input type="text" class="form-control" id="editBulan" name="bulan" required>
-                    </div>
+                            <div class="mb-3">
+                                <label for="bulan" class="form-label">Bulan</label>
+                                <select name="bulan" id="bulan" class="form-select" required>
+                                    <option value="1">Januari</option>
+                                    <option value="2">Februari</option>
+                                    <option value="3">Maret</option>
+                                    <option value="4">April</option>
+                                    <option value="5">Mei</option>
+                                    <option value="6">Juni</option>
+                                    <option value="7">Juli</option>
+                                    <option value="8">Agustus</option>
+                                    <option value="9">September</option>
+                                    <option value="10">Oktober</option>
+                                    <option value="11">November</option>
+                                    <option value="12">Desember</option>
+                                </select>
+                            </div>
                     <div class="mb-3">
                         <label for="editTahun" class="form-label">Tahun</label>
                         <input type="text" class="form-control" id="editTahun" name="tahun" required>

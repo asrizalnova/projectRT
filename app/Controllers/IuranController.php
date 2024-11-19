@@ -28,7 +28,7 @@ class IuranController extends Controller
         // Fetch the necessary data
         $data['iuran_detail'] = $this->iuranModel
             ->select('tbl_iuran.*, kas.namaKas, kk.namaKK, user.nama') // pilih kolom yang dibutuhkan
-            ->join('tbl_kas as kas', 'tbl_iuran.idKas = kas.idKas', 'left') // gabungkan dengan tbl_kas berdasarkan idKas
+            ->join('tbl_kas as kas', 'tbl_iuran.idKas = kas.idKas', 'left')
             ->join('tbl_kk as kk', 'tbl_iuran.noKK = kk.noKK', 'left') // gabungkan dengan tbl_kk berdasarkan noKK
             ->join('tbl_user as user', 'tbl_iuran.idUser = user.idUser', 'left') // gabungkan dengan tbl_user berdasarkan idUser
             ->findAll();

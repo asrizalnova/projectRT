@@ -35,10 +35,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id</th>
                                         <th>Nama Kas</th>
                                         <th>Jenis</th>
-                                        <th>Saldo</th>
+                                        <th>Total Iuran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -47,7 +46,6 @@
                                     <?php foreach ($kas_detail as $row): ?>
                                         <tr id="<?php echo $row['idKas']; ?>">
                                             <td><?= $no++; ?></td>
-                                            <td><?= $row['idKas']; ?></td>
                                             <td><?= $row['namaKas']; ?></td>
                                             <td><?= $row['jenis']; ?></td>
                                             <td><?= $row['saldo']; ?></td>
@@ -63,10 +61,9 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id</th>
                                         <th>Nama Kas</th>
                                         <th>Jenis</th>
-                                        <th>Saldo</th>
+                                        <th>Total Iuran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>

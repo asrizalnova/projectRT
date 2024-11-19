@@ -3,18 +3,38 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\KKModel;
+use App\Models\WargaModel;
+use App\Models\KasModel;
+use App\Models\PengeluaranModel;
+use App\Models\UserModel;
+use App\Models\IuranModel;
 
 class Beranda extends BaseController
 {
-    public function index(): mixed // Ubah tipe pengembalian menjadi mixed
+    public function index()
     {
-        // Cek apakah pengguna sudah login
         if (!session()->get('logged_in')) {
-            // Jika belum login, alihkan ke halaman login
-            return redirect()->to('login');
+            return redirect()->to(base_url('login')); // Ubah 'login' sesuai dengan halaman login kamu
         }
+        $KKModel = new KKModel();
+        $WargaModel = new WargaModel();
+        $KasModel = new KasModel();
+        $PengeluaranModel = new PengeluaranModel();
+        $UserModel = new UserModel();
+        $IuranModel = new IuranModel();
 
-        // Jika sudah login, tampilkan halaman beranda
-        return view('admin/beranda');
+        $data['kkCount'] = $KKModel->countAll();
+        $data['wargaCount'] = $WargaModel->countAll();
+        $data['kasCount'] = $KasModel->countAll();
+        $data['pengeluaranCount'] = $PengeluaranModel->countAll();
+        $data['userCount'] = $UserModel->countAll();
+        $data['iuranCount'] = $IuranModel->countAll();
+
+        // Ambil 3 data kas terbaru
+        $data['kasPreview'] = $KasModel->orderBy('idKas', 'DESC')->findAll();
+
+
+        return view('admin/beranda', $data);
     }
 }

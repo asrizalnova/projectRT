@@ -34,7 +34,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="<?= base_url(); ?>" class="nav-link">
+                    <a href="<?= base_url('beranda'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Beranda
@@ -91,17 +91,18 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('logout'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i> <!-- Ikon untuk logout -->
-                        <p>
-                            Logout
-                        </p>
-                    </a>
-                </li>
+                <!-- Tombol Logout -->
+<li class="nav-item">
+    <a href="#" class="nav-link btnLogout">
+        <i class="nav-icon fas fa-sign-out-alt"></i>
+        <p>Logout</p>
+    </a>
+</li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 </aside>
+

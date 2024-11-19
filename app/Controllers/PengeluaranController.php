@@ -153,4 +153,7 @@ class PengeluaranController extends Controller
             return $this->response->setJSON(['status' => false, 'redirect' => site_url('pengeluaran')]);
         }
     }
+    
 }
+
+

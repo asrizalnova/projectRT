@@ -13,16 +13,13 @@ class UserController extends Controller
     {
         $this->userModel = new UserModel();
 
-        if (session()->get('level') !== 'superadmin') {
-            return redirect()->to(base_url('/')); // Redirect ke halaman login jika bukan superadmin
-        }
     }
 
     public function index()
     {
         if (!session()->get('logged_in')) {
             return redirect()->to(base_url('login'));
-        } elseif (session()->get('level') !== 'superadmin') {
+        } elseif (session()->get('level') !== 'Super Admin') {
             return redirect()->to(base_url('/')); // Redirect ke halaman login jika bukan superadmin
         }
 
@@ -90,7 +87,7 @@ class UserController extends Controller
         $validation = \Config\Services::validation();
         $validation->setRules([
             'nama' => 'required',
-            'username' => 'required|is_unique[tbl_user.username]',
+            'username' => 'required',
             'level' => 'required',
             'status' => 'required',
         ]);
