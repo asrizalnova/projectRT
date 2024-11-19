@@ -52,9 +52,9 @@
                                             <td><?= $row->level; ?></td>
                                             <td><?= $row->status; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-primary btnEditUser btn-sm">Edit</a>
-                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-danger btnDeleteUser btn-sm">Delete</a>
-                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-warning btnChangePassword btn-sm">Ganti Password</a>
+                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-primary btnEditUser btn-sm">Ubah</a>
+                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-danger btnDeleteUser btn-sm">Hapus</a>
+                                                <a data-id="<?= $row->idUser; ?>" class="btn btn-warning btnChangePassword btn-sm">Ubah Sandi</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -86,7 +86,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="createUser" name="createUser" action="<?= site_url('user/store'); ?>" method="post">
+                <form id="createUser" name="createUser" action="<?= site_url('admin/user/store'); ?>" method="post">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
                 </div>
             </form>
         </div>
@@ -168,24 +168,24 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                <h5 class="modal-title" id="changePasswordLabel">Ubah Sandi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="changePasswordForm" action="<?= site_url('user/changePassword'); ?>" method="POST">
                 <div class="modal-body">
                     <input type="hidden" id="changeUserId" name="idUser"> <!-- Hidden field for user ID -->
                     <div class="mb-3">
-                        <label for="newPassword" class="form-label">New Password</label>
+                        <label for="newPassword" class="form-label">Password Baru</label>
                         <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                     </div>
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Change Password</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Ubah Sandi</button>
                 </div>
             </form>
         </div>

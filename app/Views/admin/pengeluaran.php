@@ -54,8 +54,8 @@
                                             <td><?= $row['tanggal']; ?></td>
                                             <td><?= $row['nama']; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row['idPengeluaran']; ?>" class="btn btn-primary btnEditPengeluaran btn-sm">Edit</a>
-                                                <a data-id="<?= $row['idPengeluaran']; ?>" class="btn btn-danger btnDeletePengeluaran btn-sm">Delete</a>
+                                                <a data-id="<?= $row['idPengeluaran']; ?>" class="btn btn-primary btnEditPengeluaran btn-sm">Ubah</a>
+                                                <a data-id="<?= $row['idPengeluaran']; ?>" class="btn btn-danger btnDeletePengeluaran btn-sm">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -8,18 +8,18 @@ use CodeIgniter\Controller;
 class KasController extends Controller
 {
     public function index()
-{
-    if (!session()->get('logged_in')) {
-        return redirect()->to(base_url('login')); // Sesuaikan dengan halaman login
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to(base_url('login')); // Sesuaikan dengan halaman login
+        }
+
+        $model = new KasModel();
+
+        // Mengambil data dengan urutan terbaru di atas
+        $data['kas_detail'] = $model->orderBy('idKas', 'ASC')->findAll();
+
+        return view('admin/kas', $data);
     }
-
-    $model = new KasModel();
-
-    // Mengambil data dengan urutan terbaru di atas
-    $data['kas_detail'] = $model->orderBy('idKas', 'DESC')->findAll();
-
-    return view('admin/kas', $data);
-}
 
 
     public function store()

@@ -22,6 +22,9 @@ class PengeluaranController extends Controller
 
     public function index()
     {
+        if (!session()->get('logged_in')) {
+            return redirect()->to(base_url('login')); // Sesuaikan dengan halaman login
+        }
         // Fetch the necessary data
         $data['pengeluaran_detail'] = $this->pengeluaranModel
             ->select('tbl_pengeluaran.*, kas.namaKas, user.nama') // pilih kolom yang dibutuhkan
@@ -153,7 +156,4 @@ class PengeluaranController extends Controller
             return $this->response->setJSON(['status' => false, 'redirect' => site_url('pengeluaran')]);
         }
     }
-    
 }
-
-

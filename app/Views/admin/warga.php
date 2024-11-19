@@ -66,8 +66,8 @@
                                             <td><?= $row['keterangan']; ?></td>
                                             <td><?= $row['statusAktif']; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row['nik']; ?>" class="btn btn-primary btnEditWarga btn-sm">Edit</a>
-                                                <a data-id="<?= $row['nik']; ?>" class="btn btn-danger btnDeleteWarga btn-sm">Delete</a>
+                                                <a data-id="<?= $row['nik']; ?>" class="btn btn-primary btnEditWarga btn-sm">Ubah</a>
+                                                <a data-id="<?= $row['nik']; ?>" class="btn btn-danger btnDeleteWarga btn-sm">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -50,8 +50,8 @@
                                             <td><?= $row['namaKK']; ?></td>
                                             <td><?= $row['status']; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row['noKK']; ?>" class="btn btn-primary btnEditKK btn-sm">Edit</a>
-                                                <a data-id="<?= $row['noKK']; ?>" class="btn btn-danger btnDeleteKK btn-sm">Delete</a>
+                                                <a data-id="<?= $row['noKK']; ?>" class="btn btn-primary btnEditKK btn-sm">Ubah</a>
+                                                <a data-id="<?= $row['noKK']; ?>" class="btn btn-danger btnDeleteKK btn-sm">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

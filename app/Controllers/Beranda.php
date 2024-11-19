@@ -15,25 +15,30 @@ class Beranda extends BaseController
     public function index()
     {
         if (!session()->get('logged_in')) {
-            return redirect()->to(base_url('login')); // Ubah 'login' sesuai dengan halaman login kamu
+            return redirect()->to(base_url('login'));
         }
-        $KKModel = new KKModel();
-        $WargaModel = new WargaModel();
-        $KasModel = new KasModel();
-        $PengeluaranModel = new PengeluaranModel();
-        $UserModel = new UserModel();
-        $IuranModel = new IuranModel();
 
-        $data['kkCount'] = $KKModel->countAll();
-        $data['wargaCount'] = $WargaModel->countAll();
+        $KasModel = new KasModel();
+        $IuranModel = new IuranModel();
+        $PengeluaranModel = new PengeluaranModel();
+
+        $data['kkCount'] = (new KKModel())->countAll();
+        $data['wargaCount'] = (new WargaModel())->countAll();
         $data['kasCount'] = $KasModel->countAll();
         $data['pengeluaranCount'] = $PengeluaranModel->countAll();
-        $data['userCount'] = $UserModel->countAll();
+        $data['userCount'] = (new UserModel())->countAll();
         $data['iuranCount'] = $IuranModel->countAll();
 
-        // Ambil 3 data kas terbaru
-        $data['kasPreview'] = $KasModel->orderBy('idKas', 'DESC')->findAll();
-
+        // Ambil 3 data kas terbaru dan hitung jumlah pemasukan dan pengeluaran untuk setiap idKas
+        $data['kasPreview'] = $KasModel
+            ->select('tbl_kas.*, 
+                  SUM(tbl_iuran.jumlah) AS total_iuran, 
+                  SUM(tbl_pengeluaran.int) AS total_pengeluaran')
+            ->join('tbl_iuran', 'tbl_kas.idKas = tbl_iuran.idKas', 'left')
+            ->join('tbl_pengeluaran', 'tbl_kas.idKas = tbl_pengeluaran.idKas', 'left')
+            ->groupBy('tbl_kas.idKas')
+            ->orderBy('tbl_kas.idKas', 'DESC')
+            ->findAll();
 
         return view('admin/beranda', $data);
     }

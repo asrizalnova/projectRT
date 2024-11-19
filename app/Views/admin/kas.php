@@ -50,8 +50,8 @@
                                             <td><?= $row['jenis']; ?></td>
                                             <td><?= $row['saldo']; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row['idKas']; ?>" class="btn btn-primary btnEditKas btn-sm">Edit</a>
-                                                <a data-id="<?= $row['idKas']; ?>" class="btn btn-danger btnDeleteKas btn-sm">Delete</a>
+                                                <a data-id="<?= $row['idKas']; ?>" class="btn btn-primary btnEditKas btn-sm">Ubah</a>
+                                                <a data-id="<?= $row['idKas']; ?>" class="btn btn-danger btnDeleteKas btn-sm">Hapus</a>
                                             </td>
 
                                             </td>

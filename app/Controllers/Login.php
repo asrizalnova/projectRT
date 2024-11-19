@@ -11,7 +11,7 @@ class Login extends BaseController
     {
         // Jika user sudah login, arahkan ke dashboard
         if (session()->get('logged_in')) {
-            return redirect()->to(base_url());
+            return redirect()->to(base_url('admin'));
         }
 
         // Tampilkan view login
@@ -43,7 +43,7 @@ class Login extends BaseController
                         'logged_in' => TRUE
                     ]);
 
-                    return redirect()->to(base_url());
+                    return redirect()->to(base_url('admin'));
                 } else {
                     // Set flashdata khusus untuk kesalahan password
                     session()->setFlashdata('errPassword', 'Password yang Anda masukkan salah.');

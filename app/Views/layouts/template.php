@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3</title>
+    <link rel="icon" type="image/png" href="<?= base_url('LogoRT.png'); ?>">
+
+    <title>RT 16</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -78,31 +80,32 @@
                 "autoWidth": false,
                 "searching": true,
                 "paging": false,
+                "language": {
+                    "search": "Cari:" // Mengubah teks "Searching" menjadi "Cari"
+                },
                 "buttons": [{
                         extend: 'excel',
-                        text: 'Export to Excel',
+                        text: 'Ekspor ke Excel',
+                        className: 'btn btn-success', // Warna hijau
                         exportOptions: {
                             columns: ':not(:last-child)' // Menyertakan semua kolom kecuali kolom terakhir
                         }
                     },
                     {
                         extend: 'print',
-                        text: 'Print',
+                        text: 'Cetak',
+                        className: 'btn btn-primary', // Warna biru
                         exportOptions: {
                             columns: ':not(:last-child)' // Menyertakan semua kolom kecuali kolom terakhir
                         }
                     },
                     {
                         extend: 'colvis',
-                        text: 'Column Visibility'
+                        text: 'Transparansi Kolom',
+                        className: 'btn btn-warning' // Warna kuning
                     }
                 ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-
-
-
-
         });
 
         //CRUD Kas
@@ -112,7 +115,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('kas/store'); ?>",
+                    url: "<?= site_url('admin/kas/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -152,7 +155,7 @@
 
                 // Ambil data dari server menggunakan AJAX untuk Kas
                 $.ajax({
-                    url: "<?= site_url('kas/edit'); ?>/" + idKas,
+                    url: "<?= site_url('admin/kas/edit'); ?>/" + idKas,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -161,7 +164,7 @@
                         $('#editSaldo').val(data.saldo);
 
                         // Set action form untuk mengarah ke metode update
-                        $('#editKasForm').attr('action', "<?= site_url('kas/update'); ?>/" + idKas);
+                        $('#editKasForm').attr('action', "<?= site_url('admin/kas/update'); ?>/" + idKas);
 
                         // Tampilkan modal edit
                         $('#editModalKas').modal('show');
@@ -237,12 +240,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('kas/delete'); ?>/" + idKas,
+                            url: "<?= site_url('admin/kas/delete'); ?>/" + idKas,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -301,7 +305,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('kk/store'); ?>",
+                    url: "<?= site_url('admin/kk/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -340,7 +344,7 @@
 
                 // Ambil data dari server menggunakan AJAX untuk KK
                 $.ajax({
-                    url: "<?= site_url('kk/edit'); ?>/" + noKK,
+                    url: "<?= site_url('admin/kk/edit'); ?>/" + noKK,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -349,7 +353,7 @@
                         $('#editStatus').val(data.status);
 
                         // Set action form untuk mengarah ke metode update
-                        $('#editKKForm').attr('action', "<?= site_url('kk/update'); ?>/" + noKK);
+                        $('#editKKForm').attr('action', "<?= site_url('admin/kk/update'); ?>/" + noKK);
 
                         // Tampilkan modal edit
                         $('#editModal').modal('show');
@@ -424,12 +428,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('kk/delete'); ?>/" + noKK,
+                            url: "<?= site_url('admin/kk/delete'); ?>/" + noKK,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -487,7 +492,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('iuran/store'); ?>",
+                    url: "<?= site_url('admin/iuran/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -526,7 +531,7 @@
 
                 // Ambil data dari server menggunakan AJAX untuk Iuran
                 $.ajax({
-                    url: "<?= site_url('iuran/edit'); ?>/" + idIuran,
+                    url: "<?= site_url('admin/iuran/edit'); ?>/" + idIuran,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -537,14 +542,14 @@
                         });
 
                         $('#editNoKK').empty(); // Hapus opsi sebelumnya
-                            $.each(data.kk, function(index, kk) {
-                                // Format teks yang ditampilkan di dropdown: "noKK - namaKK"
-                                const displayText = `${kk.noKK} - ${kk.namaKK}`;
-                                // Periksa apakah ini adalah opsi yang sesuai dengan data iuran
-                                const isSelected = kk.noKK === data.iuran.noKK;
-                                // Tambahkan opsi ke dropdown
-                                $('#editNoKK').append(new Option(displayText, kk.noKK, isSelected, isSelected));
-                            });
+                        $.each(data.kk, function(index, kk) {
+                            // Format teks yang ditampilkan di dropdown: "noKK - namaKK"
+                            const displayText = `${kk.noKK} - ${kk.namaKK}`;
+                            // Periksa apakah ini adalah opsi yang sesuai dengan data iuran
+                            const isSelected = kk.noKK === data.iuran.noKK;
+                            // Tambahkan opsi ke dropdown
+                            $('#editNoKK').append(new Option(displayText, kk.noKK, isSelected, isSelected));
+                        });
 
 
                         // Mengisi data yang akan diedit
@@ -554,7 +559,7 @@
                         $('#editTanggal').val(data.iuran.tanggal);
 
                         // Set action form untuk mengarah ke metode update
-                        $('#editIuranForm').attr('action', "<?= site_url('iuran/update'); ?>/" + idIuran);
+                        $('#editIuranForm').attr('action', "<?= site_url('admin/iuran/update'); ?>/" + idIuran);
 
                         // Tampilkan modal edit
                         $('#editModalIuran').modal('show');
@@ -623,12 +628,14 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('iuran/delete'); ?>/" + idIuran,
+                            url: "<?= site_url('admin/iuran/delete'); ?>/" + idIuran,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -685,7 +692,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('pengeluaran/store'); ?>",
+                    url: "<?= site_url('admin/pengeluaran/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -725,7 +732,7 @@
 
                 // Ambil data dari server menggunakan AJAX untuk Iuran
                 $.ajax({
-                    url: "<?= site_url('pengeluaran/edit'); ?>/" + idPengeluaran,
+                    url: "<?= site_url('admin/pengeluaran/edit'); ?>/" + idPengeluaran,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -742,7 +749,7 @@
                         $('#editTanggal').val(data.pengeluaran.tanggal);
 
                         // Set action form untuk mengarah ke metode update
-                        $('#editPengeluaranForm').attr('action', "<?= site_url('pengeluaran/update'); ?>/" + idPengeluaran);
+                        $('#editPengeluaranForm').attr('action', "<?= site_url('admin/pengeluaran/update'); ?>/" + idPengeluaran);
 
                         // Tampilkan modal edit
                         $('#editModalPengeluaran').modal('show');
@@ -811,12 +818,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('pengeluaran/delete'); ?>/" + idPengeluaran,
+                            url: "<?= site_url('admin/pengeluaran/delete'); ?>/" + idPengeluaran,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -873,7 +881,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('user/store'); ?>",
+                    url: "<?= site_url('admin/user/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -912,7 +920,7 @@
 
                 // Ambil data dari server menggunakan AJAX
                 $.ajax({
-                    url: "<?= site_url('user/edit'); ?>/" + idUser,
+                    url: "<?= site_url('admin/user/edit'); ?>/" + idUser,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -924,7 +932,7 @@
                             $('#editStatus').val(data.user.status);
 
                             // Set action form untuk update
-                            $('#editUserForm').attr('action', "<?= site_url('user/update'); ?>/" + idUser);
+                            $('#editUserForm').attr('action', "<?= site_url('admin/user/update'); ?>/" + idUser);
 
                             // Tampilkan modal edit
                             $('#editModalUser').modal('show');
@@ -1000,12 +1008,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('user/delete'); ?>/" + idUser,
+                            url: "<?= site_url('admin/user/delete'); ?>/" + idUser,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -1058,7 +1067,7 @@
 
             $('.btnChangePassword').on('click', function() {
                 const userId = $(this).data('id'); // Mengambil ID pengguna
-                const url = "<?= site_url('user/changePassword/'); ?>" + userId; // Menyusun URL untuk mengarah ke controller dengan ID
+                const url = "<?= site_url('admin/user/changePassword/'); ?>" + userId; // Menyusun URL untuk mengarah ke controller dengan ID
 
                 // Tampilkan modal untuk ganti password
                 $('#changePasswordModal').modal('show');
@@ -1131,7 +1140,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "<?= site_url('warga/store'); ?>",
+                    url: "<?= site_url('admin/warga/store'); ?>",
                     type: "POST",
                     data: $(this).serialize(),
                     success: function(response) {
@@ -1170,7 +1179,7 @@
 
                 // Ambil data dari server menggunakan AJAX
                 $.ajax({
-                    url: "<?= site_url('warga/edit'); ?>/" + nik,
+                    url: "<?= site_url('admin/warga/edit'); ?>/" + nik,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
@@ -1194,7 +1203,7 @@
                             });
 
                             // Set action form untuk update
-                            $('#editWargaForm').attr('action', "<?= site_url('warga/update'); ?>/" + nik);
+                            $('#editWargaForm').attr('action', "<?= site_url('admin/warga/update'); ?>/" + nik);
 
                             // Tampilkan modal edit
                             $('#editModalWarga').modal('show');
@@ -1270,12 +1279,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Kirim permintaan penghapusan dengan AJAX
                         $.ajax({
-                            url: "<?= site_url('warga/delete'); ?>/" + nik,
+                            url: "<?= site_url('admin/warga/delete'); ?>/" + nik,
                             type: "DELETE",
                             dataType: "json",
                             success: function(response) {
@@ -1329,23 +1339,23 @@
         });
 
         $('.btnLogout').on('click', function() {
-    // Menggunakan SweetAlert2 untuk konfirmasi logout
-    Swal.fire({
-        title: 'Apakah Anda yakin?',
-        text: "Anda akan keluar dari aplikasi!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, logout!',
-        cancelButtonText: 'Batal'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Jika user mengkonfirmasi logout, arahkan ke halaman logout
-            window.location.href = "<?= base_url('logout'); ?>";
-        }
-    });
-});
+            // Menggunakan SweetAlert2 untuk konfirmasi logout
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda akan keluar dari aplikasi!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, logout!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika user mengkonfirmasi logout, arahkan ke halaman logout
+                    window.location.href = "<?= base_url('logout'); ?>";
+                }
+            });
+        });
 
 
 

@@ -24,21 +24,21 @@
         </div>
     </section>
     <?php
-$namaBulan = [
-    1 => 'Januari',
-    2 => 'Februari',
-    3 => 'Maret',
-    4 => 'April',
-    5 => 'Mei',
-    6 => 'Juni',
-    7 => 'Juli',
-    8 => 'Agustus',
-    9 => 'September',
-    10 => 'Oktober',
-    11 => 'November',
-    12 => 'Desember'
-];
-?>
+    $namaBulan = [
+        1 => 'Januari',
+        2 => 'Februari',
+        3 => 'Maret',
+        4 => 'April',
+        5 => 'Mei',
+        6 => 'Juni',
+        7 => 'Juli',
+        8 => 'Agustus',
+        9 => 'September',
+        10 => 'Oktober',
+        11 => 'November',
+        12 => 'Desember'
+    ];
+    ?>
 
     <!-- Main content -->
     <section class="content">
@@ -74,8 +74,8 @@ $namaBulan = [
                                             <td><?= $row['tanggal']; ?></td>
                                             <td><?= $row['nama']; ?></td>
                                             <td class="text-left">
-                                                <a data-id="<?= $row['idIuran']; ?>" class="btn btn-primary btnEditIuran btn-sm">Edit</a>
-                                                <a data-id="<?= $row['idIuran']; ?>" class="btn btn-danger btnDeleteIuran btn-sm">Delete</a>
+                                                <a data-id="<?= $row['idIuran']; ?>" class="btn btn-primary btnEditIuran btn-sm">Ubah</a>
+                                                <a data-id="<?= $row['idIuran']; ?>" class="btn btn-danger btnDeleteIuran btn-sm">Hapus</a>
                                             </td>
 
                                             </td>
@@ -199,23 +199,23 @@ $namaBulan = [
                             <option value="">Pilih Nomor KK</option>
                         </select>
                     </div>
-                            <div class="mb-3">
-                                <label for="bulan" class="form-label">Bulan</label>
-                                <select name="bulan" id="bulan" class="form-select" required>
-                                    <option value="1">Januari</option>
-                                    <option value="2">Februari</option>
-                                    <option value="3">Maret</option>
-                                    <option value="4">April</option>
-                                    <option value="5">Mei</option>
-                                    <option value="6">Juni</option>
-                                    <option value="7">Juli</option>
-                                    <option value="8">Agustus</option>
-                                    <option value="9">September</option>
-                                    <option value="10">Oktober</option>
-                                    <option value="11">November</option>
-                                    <option value="12">Desember</option>
-                                </select>
-                            </div>
+                    <div class="mb-3">
+                        <label for="editBulan" class="form-label">Bulan</label>
+                        <select name="bulan" id="editBulan" class="form-select" required>
+                            <option value="1">Januari</option>
+                            <option value="2">Februari</option>
+                            <option value="3">Maret</option>
+                            <option value="4">April</option>
+                            <option value="5">Mei</option>
+                            <option value="6">Juni</option>
+                            <option value="7">Juli</option>
+                            <option value="8">Agustus</option>
+                            <option value="9">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="editTahun" class="form-label">Tahun</label>
                         <input type="text" class="form-control" id="editTahun" name="tahun" required>

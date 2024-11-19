@@ -12,7 +12,6 @@ class UserController extends Controller
     public function __construct()
     {
         $this->userModel = new UserModel();
-
     }
 
     public function index()
@@ -20,7 +19,7 @@ class UserController extends Controller
         if (!session()->get('logged_in')) {
             return redirect()->to(base_url('login'));
         } elseif (session()->get('level') !== 'Super Admin') {
-            return redirect()->to(base_url('/')); // Redirect ke halaman login jika bukan superadmin
+            return redirect()->to(base_url('admin')); // Redirect ke halaman login jika bukan superadmin
         }
 
         $model = $this->userModel;

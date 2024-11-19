@@ -25,6 +25,10 @@ class IuranController extends Controller
 
     public function index()
     {
+        if (!session()->get('logged_in')) {
+            return redirect()->to(base_url('login')); // Sesuaikan dengan halaman login
+        }
+
         // Fetch the necessary data
         $data['iuran_detail'] = $this->iuranModel
             ->select('tbl_iuran.*, kas.namaKas, kk.namaKK, user.nama') // pilih kolom yang dibutuhkan
